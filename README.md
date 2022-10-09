@@ -2,7 +2,7 @@
 
 Este repositório consiste num resumo sobre  principais estruturas de dados e algorítimos, implementados na linguagem de programação JavaScript.
 
-O conteúdo aqui presente foi foi cotejado de diversas fontes e tem objetivo apenas educacional.
+O conteúdo aqui presente foi cotejado de diversas fontes e tem objetivo apenas educacional.
 
 ## INTRODUÇÃO: Objetos e programação orientada a objetos
 
