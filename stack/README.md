@@ -1,4 +1,4 @@
-# Usando a classe Stack
+# _[Usando a classe Stack](./Stack.js)_
 
 ## Conversão de base
 
