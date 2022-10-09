@@ -14,19 +14,22 @@ function Account (amount) {
   this.withdraw = withdraw; // método
   this.toString = toString; // método
 }
+
 function deposit(amount) {
-this.balance += amount;
+  this.balance += amount;
 }
+
 function withdraw(amount) {
-if (amount <= this.balance) {
-this.balance -= amount;
+  if (amount <= this.balance) {
+    this.balance -= amount;
+  }
+  if (amount > this.balance) {
+    console.log("Insufficient funds");
+  }
 }
-if (amount > this.balance) {
-print("Insufficient funds");
-}
-}
+
 function toString() {
-return "Balance: " + this.balance;
+  return "Balance: " + this.balance;
 }
 
 var account = new Account(100); // objeto criado
