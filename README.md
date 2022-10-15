@@ -4,6 +4,14 @@ Este repositório consiste num resumo sobre principais estruturas de dados e alg
 
 O conteúdo aqui presente foi cotejado de diversas fontes e tem objetivo apenas educacional.
 
+## Índice
+
+- [Introdução: objetos e programação orientada a objetos](#introdução-objetos-e-programação-orientada-a-objetos)
+- [Implementação das estruturas de dados](#implementações-das-estruturas-de-dados)
+  - [Listas (Lists)](#listas)
+  - [Pilhas (Stacks)](#stacks)
+  - [Filas (Queues)](#queues)
+
 ## INTRODUÇÃO: Objetos e programação orientada a objetos
 
 Objectos, na linguagem JavaScript, são criados por uma função construtora que inclui declarações para os atributos e métodos do objeto, por exemplo:
@@ -63,7 +71,7 @@ const account = new Account(100);
 
 Classes, portanto, são moldes (ou templates) de objetos.
 
-# Implementações das estruturas de dados
+## Implementações das estruturas de dados
 
 ## Listas
 
