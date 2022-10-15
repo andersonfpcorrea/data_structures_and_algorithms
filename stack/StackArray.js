@@ -1,33 +1,29 @@
 class StackArray {
-  constructor(dataStore = []) {
-    this.dataStore = dataStore;
-  }
-
-  top = 0;
+  #dataStore;
 
   push(element) {
-    this.dataStore.push(element);
+    this.#dataStore.push(element);
   }
 
   pop() {
-    return this.dataStore.pop();
+    return this.#dataStore.pop();
   }
 
   peek() {
-    return this.dataStore[this.dataStore.length - 1];
+    return this.#dataStore[this.#dataStore.length - 1];
   }
 
   size() {
-    return this.dataStore.length;
+    return this.#dataStore.length;
   }
 
   isEmpty() {
-    return this.dataStore.length === 0;
+    return this.#dataStore.length === 0;
   }
 
   clear() {
-    this.dataStore = [];
+    this.#dataStore = [];
   }
 }
 
-export default Stack;
+export default StackArray;
