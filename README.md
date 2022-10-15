@@ -108,7 +108,7 @@ Para pegar um elemento do fundo da _stack_, todos os outros elementos devem ser 
 - A propriedade _length_ guarda o número de elementos da pilha
 - A propriedade _empty_ (boolean) indica se a pilha está vazia
 
-_[Clique aqui para ver a implementação da stack](./stack)_.
+_[Clique aqui para ver exemplos de uso e a implementação da stack](./stack)_.
 
 <hr>
 

@@ -5,7 +5,7 @@ class Stack {
   top = 0
 
   push(element) {
-    this.dataStore[this.top++] == element
+    this.dataStore[this.top++] = element
   }
 
   pop() {
@@ -25,3 +25,5 @@ class Stack {
   }
 
 }
+
+export default Stack;

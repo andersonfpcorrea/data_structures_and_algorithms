@@ -1,4 +1,6 @@
-# _[Usando a classe Stack](./Stack.js)_
+## Implementação _[aqui](./Stack.js)_
+## Exercícios _[aqui](./exercises.js)_
+# Exemplos de uso
 
 ## Conversão de base
 

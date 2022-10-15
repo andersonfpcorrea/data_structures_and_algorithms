@@ -1,0 +1,22 @@
+{
+  "name": "data_structures_and_algorithms_using_javascript",
+  "version": "1.0.0",
+  "description": "Este repositório consiste num resumo sobre  principais estruturas de dados e algorítimos, implementados na linguagem de programação JavaScript.",
+  "author": "Anderson Corrêa",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andersonfpcorrea/data_structures_and_algorithms.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/andersonfpcorrea/data_structures_and_algorithms/issues"
+  },
+  "homepage": "https://github.com/andersonfpcorrea/data_structures_and_algorithms#readme"
+}
