@@ -1,4 +1,6 @@
-## Implementação _[aqui](./Stack.js)_
+## Implementação com Array _[aqui](./StackArray.js)_
+
+## Implementação com Objeto _[aqui](./StackObject.js)_
 
 ## Exercícios _[aqui](./exercises.js)_
 
