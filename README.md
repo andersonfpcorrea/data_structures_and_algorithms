@@ -1,14 +1,15 @@
 # Estruturas de dados e algorítimos
 
-Este repositório consiste num resumo sobre  principais estruturas de dados e algorítimos, implementados na linguagem de programação JavaScript.
+Este repositório consiste num resumo sobre principais estruturas de dados e algorítimos, implementados na linguagem de programação JavaScript.
 
 O conteúdo aqui presente foi cotejado de diversas fontes e tem objetivo apenas educacional.
 
 ## INTRODUÇÃO: Objetos e programação orientada a objetos
 
-Objectos, na linguagem JavaScript, são criados ao definirmos uma função construtora que inclui declarações para os atributos (ou propriedades) e métodos (ou funções) do objeto, por exemplo:
+Objectos, na linguagem JavaScript, são criados por uma função construtora que inclui declarações para os atributos e métodos do objeto, por exemplo:
+
 ```javascript
-function Account (amount) {
+function Account(amount) {
   this.balance = amount; // atributo
   this.deposit = deposit; // método
   this.withdraw = withdraw; // método
@@ -24,34 +25,33 @@ function withdraw(amount) {
     this.balance -= amount;
   }
   if (amount > this.balance) {
-    console.log("Insufficient funds");
+    console.log('Insufficient funds');
   }
 }
 
 function toString() {
-  return "Balance: " + this.balance;
+  return 'Balance: ' + this.balance;
 }
 
 var account = new Account(100); // objeto criado
 ```
 
-A palavra ```this``` (_this keyword_) é usada para criar o laço entre métodos/atributos e os objetos criados a partir da funcção construtora **Account**.
+A palavra `this` (_this keyword_) é usada para criar o laço entre métodos/atributos e os objetos criados a partir da funcção construtora **Account**.
 
-Por "baixo dos panos", usar o operador ```{}``` para criar um novo objeto, é o mesmo que criar uma função contrutora e chamá-la logo em seguida para gerar um objeto.
+Por "baixo dos panos", usar o operador `{}` para criar um novo objeto, é o mesmo que criar uma função contrutora e chamá-la logo em seguida para gerar um objeto.
 
 Numa das atualizações recentes da linguagem, foram implementadas _classes_. Assim a mesma função construtora **Account** pode ser implementada desta forma:
 
 ```javascript
 class Account {
-  constructor (amount) {
+  constructor(amount) {
     this.balance = amount;
   }
   deposit(value) {
     this.balance = value;
   }
-  withdraw(value)  {
-    if (this.balance >= value)
-      this.balance -= value;
+  withdraw(value) {
+    if (this.balance >= value) this.balance -= value;
   }
   toString() {
     return `Balance: ${this.balance}`;
@@ -91,6 +91,7 @@ Listas são especialmente úteis, se não temos de fazer pesquisas pelos itens o
 - A especificalçao abstrata de lista não define uma função de armazenamento. Nesta implementação será usado um array chamado _dataStore_
 
 _[Clique aqui para ver a implementação da lista](./list/List.js)_.
+
 <hr>
 
 ## Stacks
@@ -100,6 +101,7 @@ Stack (_pilha_) é uma lista de elementos acessíveis somente desde um ponto da 
 Para pegar um elemento do fundo da _stack_, todos os outros elementos devem ser removidos primeiro.
 
 ### Stack ADT
+
 - Elementos são adicionados através da operação _push_
 - Elementos são removidos através da operação _pop_
 - A operação _peek_ retorna o valor do topo da lista, sem removê-lo
@@ -112,6 +114,6 @@ _[Clique aqui para ver exemplos de uso e a implementação da stack](./stack)_.
 
 <hr>
 
-## Queues 
-continua...
+## Queues
 
+continua...
