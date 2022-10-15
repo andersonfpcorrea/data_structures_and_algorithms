@@ -40,7 +40,7 @@ A palavra `this` (_this keyword_) é usada para criar o laço entre métodos/atr
 
 Por "baixo dos panos", usar o operador `{}` para criar um novo objeto, é o mesmo que criar uma função contrutora e chamá-la logo em seguida para gerar um objeto.
 
-Numa das atualizações recentes da linguagem, foram implementadas _classes_. Assim a mesma função construtora **Account** pode ser implementada desta forma:
+Numa das atualizações recentes da linguagem, foram implementadas _classes_. Assim, a mesma função construtora **Account** pode ser implementada desta forma:
 
 ```javascript
 class Account {
