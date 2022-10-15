@@ -2,9 +2,9 @@
 
 ## Exercícios _[aqui](./exercises.js)_
 
-# Exemplos de uso _[aqui](./exemplos_de_uso/README.md)_
+## Exemplos de uso _[aqui](./exemplos_de_uso/README.md)_
 
-## Criando um stack com objetos
+# Criando um stack com objetos
 
 O modo mais fácil de criar uma classe _stack_ é usar arrays para guardar os elementos (_[./StackArray](./StackArray.js)_). Ao trabalharmos com um grande número de dados, porém, precisamos analizar o modo mais eficiente de armazená-los.
 
