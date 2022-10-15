@@ -43,10 +43,4 @@ class StackObject {
   }
 }
 
-const a = new StackObject();
-console.log(Object.getOwnPropertyNames(a));
-console.log(a.push(1));
-console.log(a.push(1));
-console.log(a.push(1));
-console.log(a.push(1));
-console.log(a.toString());
+export default StackObject;
