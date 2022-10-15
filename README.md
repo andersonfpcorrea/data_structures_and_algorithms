@@ -67,7 +67,7 @@ Classes, portanto, são moldes (ou templates) de objetos.
 
 ## Listas
 
-Listas são especialmente úteis, se não temos de fazer pesquisas pelos itens ou ordená-los de alguma forma. Como as estruturas de dados serão criadas aqui com objetos, devemos definir os atributos (características) e métodos (ações) da classe **List**.
+Listas são especialmente úteis se não temos de fazer pesquisas pelos itens ou ordená-los de alguma forma. Como as estruturas de dados serão criadas aqui com objetos, devemos definir os atributos (características) e métodos (ações) da classe **List**.
 
 ### List ADT (abstract data type)
 
