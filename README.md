@@ -72,7 +72,7 @@ Listas são especialmente úteis se não temos de fazer pesquisas pelos itens ou
 ### List ADT (abstract data type)
 
 - Lista é uma sequência ordenada de dados
-- Cada item da lista é chamado _elemento_. Em JavScript, elementos podem ser de qualquer tipo (string, number, boolean etc).
+- Cada item da lista é chamado _elemento_. Em JavaScript, elementos podem ser de qualquer tipo (string, number, boolean etc).
 - O tamanho da lista não é pre-determinado
 - Uma lista sem elementos é _empty_
 - O número de elementos da lista é chamado _length_
