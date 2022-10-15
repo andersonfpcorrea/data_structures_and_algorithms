@@ -124,4 +124,14 @@ _[Clique aqui para ver exemplos de uso e a implementação da stack](./stack)_.
 
 ## Queues
 
-continua...
+Filas (_queues_) são um tipo de lista em que os dados são inseridos no fim e removidos do início. Filas são usadas para armazenar dados na ordem de ocorrência, ao contrário das pilhas (_stacks_), em que o último dado inserido é o primeiro a ser processado.
+
+Filas são exemplos de estrutura de dados _first-in, first-out (FIFO)_ - primeiro a chegar, primeiro a sair. Filas são usadas para ordenar processos submetidos, por exemplo, a um sistema operacional, impressoras etc.
+
+### Operações de _queues_
+
+As duas principais operações de _queues_ são inserção e remoção de elementos. A inserção é chamada _enqueue_ (enfileirar), e a remoção _dequeue_. A operação _enqueue_ insere um novo elemento no fim da fila; a operação _dequeue_ remove um elemento da frente da fila.
+
+A operação de checar o primeiro elemento da fila chama-se _peek_. Essa operação retorna o elemento da frente da fila sem removê-lo. Filas também têm a propriedade _length_ - ou o método _size_ -, que guarda/retorna a quantidade de elementos da fila. Por fim, a operação _clear_ remove todos os elementos da _queue_.
+
+_[Clique aqui para ver a implementação, exemplos e exercícios relacionados a filas]()_
