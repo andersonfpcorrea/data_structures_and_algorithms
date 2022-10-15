@@ -36,7 +36,7 @@ function toString() {
 var account = new Account(100); // objeto criado
 ```
 
-A palavra `this` (_this keyword_) é usada para criar o laço entre métodos/atributos e os objetos criados a partir da funcção construtora **Account**.
+A palavra `this` (_this keyword_) é usada para criar o laço entre métodos/atributos e os objetos criados a partir da função construtora **Account**.
 
 Por "baixo dos panos", usar o operador `{}` para criar um novo objeto, é o mesmo que criar uma função contrutora e chamá-la logo em seguida para gerar um objeto.
 
