@@ -2,7 +2,7 @@
 
 ## Exercícios _[aqui](./exercises.js)_
 
-# Exemplos de uso _[aqui](./exemplos_de_uso/exemplos_de_uso.md)_
+# Exemplos de uso _[aqui](./exemplos_de_uso/README.md)_
 
 ## Criando um stack com objetos
 

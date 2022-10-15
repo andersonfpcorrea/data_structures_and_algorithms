@@ -7,18 +7,6 @@ Escreva uma função que receba como argumento uma expressão aritmética e reto
 não balanceado.
 */
 
-/*
-2. Implemente uma função JavaScript que converta expressões aritiméticas infixas em expressões posfixas, 
-usando duas pilhas - uma para os operandos e outra para os opeardores, e então use as pilhas para avaliar
-as e expressão.
-*/
-
-/*
-3. Um exemplo real de pilha é um dispensador de balas Pez. Considere um dispenser "virtual" cheio de balas vermelhas,
-amarelas e brancas, e que você não queira as amarelas. Escreva um programa, usando pilhas, para remover as amarelas
-sem alterar a ordem das outras balas no dispenser.
-*/
-
 // ?==================================================
 // ?========EXEMPLO DE RESOLUÇÕES=====================
 // ?==================================================
