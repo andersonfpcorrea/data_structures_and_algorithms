@@ -1,4 +1,4 @@
-import Stack from './Stack.js';
+import StackArray from './StackArray.js';
 
 /*
 1. Uma stack pode ser usada para garantir que uma expressão matemática não tem erros em parênteses
@@ -36,11 +36,11 @@ const goodExpression = '2.3 + 23 / 12 + (3.14159 * 24)';
  * @param {string} expression
  */
 const parseExpression = (expression) => {
-  const stack = new Stack();
+  const stack = new StackArray();
   for (let i = 0; i < expression.length; i++) {
     if (expression[i].match(/[\(\)]/)) {
       // se a pilha está vazia, guarda o valor/índice com push:
-      if (stack.top === 0) {
+      if (stack.isEmpty()) {
         stack.push([expression[i], i]);
         continue;
       }
