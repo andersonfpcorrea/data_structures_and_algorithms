@@ -1,6 +1,8 @@
-## Implementação com array _[aqui](./queue_array/)_
+## Implementação _Queu_ com array _[aqui](./queue_array/)_
 
-## Implementação com objeto _[aqui](./queue_object/)_
+## Implementação _Queu_ com objeto _[aqui](./queue_object/)_
+
+## Implementação _Priority Queue_ _[aqui](./queue_priority/)_
 
 ## Exercícios _[aqui](./exercicios)_
 
