@@ -134,4 +134,4 @@ As duas principais operações de _queues_ são inserção e remoção de elemen
 
 A operação de checar o primeiro elemento da fila chama-se _peek_. Essa operação retorna o elemento da frente da fila sem removê-lo. Filas também têm a propriedade _length_ - ou o método _size_ -, que guarda/retorna a quantidade de elementos da fila. Por fim, a operação _clear_ remove todos os elementos da _queue_.
 
-_[Clique aqui para ver a implementação, exemplos e exercícios relacionados a filas]()_
+_[Clique aqui para ver a implementação, exemplos e exercícios relacionados a filas](./queue/)_
