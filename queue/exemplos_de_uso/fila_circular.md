@@ -38,3 +38,13 @@ result.eliminated.forEach((name) => {
 });
 console.log(`The winner is: ${result.winner}`);
 ```
+
+O resultado será:
+
+```
+Camila was eliminated from the Hot Potato game.
+Jack was eliminated from the Hot Potato game.
+Carl was eliminated from the Hot Potato game.
+Ingrid was eliminated from the Hot Potato game.
+The winner is: John
+```
