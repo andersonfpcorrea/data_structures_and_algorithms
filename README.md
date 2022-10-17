@@ -154,16 +154,64 @@ _Arrays_ não são a melhor estrutura de dados em algumas situações. Em muitas
 
 O principal problema de _arrays_ em JavaScript, no entanto, é eles serem implementados como objetos, tornando-os menos eficientes que _arrays_ construídos outras linguagem (C++ e Java, por exemplo).
 
-Um _array_ é uma alocação linear (contígua) de memória em que elementos são acessados por _números inteiros_. Esses _inteiros_, por sua vez, são usados para computar _offsets_ (deslocamentos), ou seja, cada _inteiro_ é um _índice_ de um espaço da memória alocada para o array.
+### Que é um _array_?
 
-Para criar um array na linguagem de progrmação Java, por exemplo, podemos fazer o seguinte:
+Um _array_ é uma alocação linear (contígua) de memória em que elementos são acessados por _números inteiros_. Esses _inteiros_, por sua vez, são usados para computar _offsets_ (deslocamentos), ou seja, cada _inteiro_ é um _índice_ de um espaço da memória alocada para o array. JavaScript não possui nada parecido com isso.
+
+Para entender melhor _arrays_, vamos supor a criação de um, na lingugem de programação _Java_. Para criar um array em Java podemos fazer o seguinte:
 
 ```java
-int[] arr = {0, 1, 2, 3};
+int[] arr = {0, 1, 2, 3}; // criamos uma array de inteiros
 ```
 
-Com essa linha de código, criamos um array estático contendo 4 números inteiros. O compilador vê esse código e entende que precisamos criar um array de inteiros, e que precisa requerer memória para isso. Cada número do tipo _int_ ocupa _4 bytes_ de memória, portanto são necesários 16 bytes para aquele array.
+Com essa linha de código, criamos um array estático contendo 4 números inteiros. O compilador vê esse código e entende que precisamos de um array de inteiros, e que ele precisa requerer memória para isso. Cada número do tipo _int_ ocupa _4 bytes_ de memória, portanto são necesários 16 bytes para aquele array.
 
-A memória dos computadores é organizada em _células_, cada qual capaz de armazenar _8 bits_ e possuindo um índice numérico. Um byte é igual a 8 bits, portanto o array acima necessita de 16 células de memória.
+A memória dos computadores é organizada em _células_, cada qual é capaz de armazenar _8 bits_ e possui um índice numérico. Um byte é igual a 8 bits, portanto o array acima necessita de 16 células de memória (128 bits).
 
 ![célula de memória](memory.png 'Células de memória')
+
+O problema para adicionar novos dados em _arrays_ é que não escolhemos quais células serão usadas para guardá-lo, muito menos podemos gerenciar as células vizinhas. Não podemos, portanto, garantir que as células próximas ao array estarão disponíveis. A solução para isso é simplesmente criar um novo array com a quantidade extra de memória, copiar os valores antigos nesse novo array e adicionar os novos dados.
+
+Remover elementos de um array é, _mutatis mutandis_, o mesmo problema.
+
+Em vez desse tipo de arrays, JavaScript disponibiliza objetos que possuem características de arrays. O primeiro elemento de um array JavaScript tem a propriedade (_chave_) '0', o segundo a propriedade '1' etc. A diferença entre
+
+```javascript
+const obj = { 0: 'zero', 1: 'um' };
+```
+
+e
+
+```javascript
+const arr = ['zero', 'um'];
+```
+
+é que o protótipo de `obj` é `Object.prototype`, e o de `arr` é `Array.prototype`; ou seja, o array `arr` herda, por exemplo, os métodos `push`, `shift`, `pop`, `map`; já o objeto `obj` não tem acesso a nada disso.
+
+Apesar de poder ser mais convenientemente manipulado, um arrray _JavaScript_ é significantemente mais lento que um _array de fato_.
+
+Quando operações com arrays tornam-se lentas demais, podemos considerar listas encadeadas como um alternativa. Essas listas pode ser usadas em quase todas as situações em que arrays unidimensionais são usados, exceto se for preciso acesso a elementos aleatórios da lista; nesse caso, arrays devem ser usados.
+
+### Definição de _listas encadeadas (linked lists)_
+
+Listas encadeadas são uma coleção de _nodes_ (nódulos). Cada _nódulo_ é ligado ao seu sucessor por meio de uma _referência_. A referência a outro _node_ é chamada _link_.
+
+Enquanto os elementos de um array são referenciados pela sua posição, elementos de uma _linked list_ são referenciados por sua relação ao outros elementos da lista.
+
+Dada a seguinte representação de lista encadeada
+
+      'leite' => 'pão' => 'ovos' => 'bacon' => null
+
+dizemos que _pão_ sucede _leite_, não que _pão_ está na segunda posição.
+
+Mover por uma _linked list_ significa seguir os _elos_ da lista, do começo do nódulo inicial ao último. O fim da lista aponta para um nódulo _null_.
+
+Muitas implementações de _linked lists_ incluem um tipo especial de _node_, chamado _head_, sendo ele o começo da lista.
+
+Para inserir ou remover um elemento da lista, basta redefinir os elos entre os _nodes_. Por exemplo, para adicionar _biscoito_ depois de _ovos_, fazemos _ovos_ apontar para _biscoito_, e este apontar para _bacon_:
+
+      'leite' => 'pão' => 'ovos' => 'biscoito' => 'bacon' => null
+
+Para remover _bacon_ da lista, basta fazer _biscoito_ apontar para _null_.
+
+_[Clique aqui para ver a implementação, exemplos de uso e exercícios de listas encadeadas](./deque/)_
