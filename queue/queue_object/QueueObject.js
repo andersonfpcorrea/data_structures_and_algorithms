@@ -1,7 +1,13 @@
 class QueueObject {
-  #items = {};
-  #count = 0;
-  #lowestCount = 0;
+  #items;
+  #count;
+  #lowestCount;
+
+  constructor() {
+    this.#items = {};
+    this.#count = 0;
+    this.#lowestCount = 0;
+  }
 
   enqueue(element) {
     this.#items[this.#count] = element;

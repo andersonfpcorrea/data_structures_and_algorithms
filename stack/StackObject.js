@@ -1,6 +1,11 @@
 class StackObject {
-  #count = 0;
-  #items = {};
+  #count;
+  #items;
+
+  constructor() {
+    this.#count = 0;
+    this.#items = {};
+  }
 
   push(element) {
     this.#items[this.#count] = element;
