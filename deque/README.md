@@ -1,4 +1,8 @@
-# Palíndromo
+# Implementação de _deque_ [aqui](./Deque.js)
+
+# Exemplo de uso
+
+## Palíndromo
 
 O seguinte algoritmo usa uma _deque_ para resolver se uma _string_ é um palíndromo:
 
