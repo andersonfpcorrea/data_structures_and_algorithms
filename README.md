@@ -143,4 +143,4 @@ A estrutura de dados _deque_, também conhecida como _double-ended queue_, é um
 
 Uma aplicação comum de _deques_ é armazenar uma lista de operações desfeitas (_undo operations_). Cada vez que um usuário realiza uma operação no software, a operação é guardada numa _deque_. Quando o usuário clica num botão "desfazer", a opearção é removida da _deque_ - ou seja, a operação do fim é removida (assim como uma _stack_). Depois de uma quantidade pre-definida de operações, os dados mais antigos da _deque_ são removidos da frente da _deque_ (assim como uma _queue_). Porque esta estrutura de dados implementa os princípios FIFO e LIFO, podemos dizer que _deques_ são uma mescla entre filas e pilhas.
 
-_[Clique aqui para ver a implementação de deques](./deque/Deque.js)_
+_[Clique aqui para ver a implementação de deques](./deque/)_
