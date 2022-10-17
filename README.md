@@ -166,7 +166,4 @@ Com essa linha de código, criamos um array estático contendo 4 números inteir
 
 A memória dos computadores é organizada em _células_, cada qual capaz de armazenar _8 bits_ e possuindo um índice numérico. Um byte é igual a 8 bits, portanto o array acima necessita de 16 células de memória.
 
-<table>
-  <tr><th>arr[0]</th><th>arr[1]</th><th>arr[2]</th><th>arr[3]</th></tr>
-  <tr></tr>
-</table>
+![célula de memória](memory.png 'Células de memória')
