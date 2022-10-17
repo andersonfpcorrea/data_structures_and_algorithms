@@ -11,6 +11,7 @@ O conteúdo aqui presente foi cotejado de diversas fontes e tem objetivo apenas 
   - [Listas (Lists)](#listas)
   - [Pilhas (Stacks)](#stacks)
   - [Filas (Queues)](#queues)
+  - [Deques](#deques)
 
 ## INTRODUÇÃO: Objetos e programação orientada a objetos
 
