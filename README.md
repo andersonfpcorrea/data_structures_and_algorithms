@@ -9,9 +9,10 @@ O conteúdo aqui presente foi cotejado de diversas fontes e tem objetivo apenas 
 - [Introdução: objetos e programação orientada a objetos](#introdução-objetos-e-programação-orientada-a-objetos)
 - [Implementação das estruturas de dados](#implementações-das-estruturas-de-dados)
   - [Listas (Lists)](#listas)
-  - [Pilhas (Stacks)](#stacks)
-  - [Filas (Queues)](#queues)
-  - [Deques](#deques)
+  - [Pilhas (Stacks)](#pilhas-stacks)
+  - [Filas (Queues)](#filas-queues)
+  - [Filas duplamente terminadas (Deques)](#filas-duplamente-terminadas-deques)
+  - [Listas encadeadas (Linked lists)](#listas-encadeadas-linked-lists)
 
 ## INTRODUÇÃO: Objetos e programação orientada a objetos
 
@@ -103,7 +104,7 @@ _[Clique aqui para ver a implementação da lista](./list/List.js)_.
 
 <hr>
 
-## Stacks
+## Pilhas (Stacks)
 
 Stack (_pilha_) é uma lista de elementos acessíveis somente desde um ponto da lista, o qual é chamado topo. A _stack_ é conhecida como _last-in, first-out_ (LIFO) - último a chegar, primeiro a sair.
 
@@ -123,7 +124,7 @@ _[Clique aqui para ver exemplos de uso e a implementação da stack](./stack)_.
 
 <hr>
 
-## Queues
+## Filas (Queues)
 
 Filas (_queues_) são um tipo de lista em que os dados são inseridos no fim e removidos do início. Filas são usadas para armazenar dados na ordem de ocorrência, ao contrário das pilhas (_stacks_), em que o último dado inserido é o primeiro a ser processado.
 
@@ -137,10 +138,35 @@ A operação de checar o primeiro elemento da fila chama-se _peek_. Essa operaç
 
 _[Clique aqui para ver a implementação, exemplos e exercícios relacionados a filas](./queue/)_
 
-## Deques
+## Filas Duplamente Terminadas (Deques)
 
-A estrutura de dados _deque_, também conhecida como _double-ended queue_, é um tipo especial de fila que permite inserir e remover elementos do fim e do início dela.
+A estrutura de dados _deque_ (_**d**ouble **e**nded **q**ueue_), também conhecida como _double-ended queue_, é um tipo especial de fila que permite inserir e remover elementos do fim e do início dela.
 
 Uma aplicação comum de _deques_ é armazenar uma lista de operações desfeitas (_undo operations_). Cada vez que um usuário realiza uma operação no software, a operação é guardada numa _deque_. Quando o usuário clica num botão "desfazer", a opearção é removida da _deque_ - ou seja, a operação do fim é removida (assim como uma _stack_). Depois de uma quantidade pre-definida de operações, os dados mais antigos da _deque_ são removidos da frente da _deque_ (assim como uma _queue_). Porque esta estrutura de dados implementa os princípios FIFO e LIFO, podemos dizer que _deques_ são uma mescla entre filas e pilhas.
 
 _[Clique aqui para ver a implementação de deques](./deque/)_
+
+## Listas encadeadas (Linked Lists)
+
+### Definiências de _arrays_
+
+_Arrays_ não são a melhor estrutura de dados em algumas situações. Em muitas linguagens de programação, _arrays_ tem tamanho fixo, tornando trabalhosa a adição de elementos quando o tamanho máximo é alcançado. Além disso, nessas mesmas linguagens, adicionar e remover elementos de um _array_ significa ter de realocar o índice de todos os outros elementos. Essas dificuldades, porém, não existem em JavaScript - podemos usar _shift()_ ou _split()_ sem a preocupação de acessar outros elementos do _array_.
+
+O principal problema de _arrays_ em JavaScript, no entanto, é eles serem implementados como objetos, tornando-os menos eficientes que _arrays_ construídos outras linguagem (C++ e Java, por exemplo).
+
+Um _array_ é uma alocação linear (contígua) de memória em que elementos são acessados por _números inteiros_. Esses _inteiros_, por sua vez, são usados para computar _offsets_ (deslocamentos), ou seja, cada _inteiro_ é um _índice_ de um espaço da memória alocada para o array.
+
+Para criar um array na linguagem de progrmação Java, por exemplo, podemos fazer o seguinte:
+
+```java
+int[] arr = {0, 1, 2, 3};
+```
+
+Com essa linha de código, criamos um array estático contendo 4 números inteiros. O compilador vê esse código e entende que precisamos criar um array de inteiros, e que precisa requerer memória para isso. Cada número do tipo _int_ ocupa _4 bytes_ de memória, portanto são necesários 16 bytes para aquele array.
+
+A memória dos computadores é organizada em _células_, cada qual capaz de armazenar _8 bits_ e possuindo um índice numérico. Um byte é igual a 8 bits, portanto o array acima necessita de 16 células de memória.
+
+<table>
+  <tr><th>arr[0]</th><th>arr[1]</th><th>arr[2]</th><th>arr[3]</th></tr>
+  <tr></tr>
+</table>
