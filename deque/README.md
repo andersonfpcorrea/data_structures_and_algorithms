@@ -37,7 +37,7 @@ function palindromeChecker(aString) {
 
 5. Enquanto há elementos na _deque_, removemos da _deque_ o primeiro e o último elemento, comparamos um com o outro e caso sejam iguais o processo se repete, caso contrário a _string_ não é palíndroma, o loop _while_ é terminado e a função retorna `false`. Caso a _string_ seja um palíndromo, a variável `isEqual` permanece `true` e é retornada pela função.
 
-Examplo:
+Exemplo:
 
 ```javascript
 console.log(palindromeChecker('a')); // true
