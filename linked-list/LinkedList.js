@@ -1,4 +1,5 @@
 import Node from './Node.js';
+
 class LinkedList {
   #head;
 
