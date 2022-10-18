@@ -214,7 +214,7 @@ dispReverse() {
 
 ## Classe _DoublyLinkedList_
 
-A classe é fica, então, da seguinte forma:
+A classe para uma lista duplamente encadeada pode ser da seguinte forma:
 
 ```javascript
 class DoublyLinkedList {
