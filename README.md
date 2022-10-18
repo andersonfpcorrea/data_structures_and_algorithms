@@ -196,7 +196,11 @@ Quando operações com arrays tornam-se lentas demais, podemos considerar listas
 
 Listas encadeadas são uma coleção de _nodes_ (nódulos). Cada _nódulo_ é ligado ao seu sucessor por meio de uma _referência_. A referência a outro _node_ é chamada _link_.
 
+Apesar de serem, assim como _arrays_, uma coleção sequencial de elementos, os elementos das _linked lists_ não são alocados em lugares contíguos da memória.
+
 Enquanto os elementos de um array são referenciados pela sua posição, elementos de uma _linked list_ são referenciados por sua relação ao outros elementos da lista.
+
+Um dos benefícios de uma lista encadeada em relação aos arrays convencionais é não precisarmos deslocar todos os elementos da lista ao adicionarmos ou removermos elementos. Precisamos, porém, usar _pointers_ (ou _links_) ao trabalharmos com listas encadeadas; se quisermos, por exemplo, acessar um certo elemento do meio da lista, precisaremos necessariamente percorrer a lista do primeiro elemento até o elemento desejado.
 
 Dada a seguinte representação de lista encadeada
 

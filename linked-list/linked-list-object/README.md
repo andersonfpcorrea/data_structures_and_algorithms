@@ -2,6 +2,7 @@
 
 - [Listas encadeadas (linked lists)](#listas-encadeadas-linked-list);
 - [Listas duplamente encadeadas (doubly linked lists)](#listas-duplamente-encadeadas-doubly-linked-lists)
+- [Listas encadeadas circulares (circularly linked lists)](#listas-encadeadas-circulares-circularly-linked-lists)
 
 # Listas encadeadas (Linked list)
 
@@ -211,7 +212,7 @@ dispReverse() {
 }
 ```
 
-## Classe \_DoublyLinkedList
+## Classe _DoublyLinkedList_
 
 A classe é fica, então, da seguinte forma:
 
@@ -272,3 +273,17 @@ class DoublyLinkedList {
   }
 }
 ```
+
+## Outros métodos da classe LinkedList (ou DoublyLinkedList)
+
+Podemos também implementar nas _LinkedLists_ os seguintes métodos:
+
+- `push(element)`: adiciona um elemento no fim da list;
+- `getElementAt(index)`: retorna o elemento de uma posição específica na lista. Se o elemento é inexistente a função retorna -1;
+- `indexOf(element)`: retorna o índice de uma elemento da lista. Se o elemento é inexistente, a função retorna -1;
+- `removeAt(position)`: remove um item de uma posição específica da lista;
+- `isEmpty()`: retorna `true` se a lista encadeada não contiver nenhum elemento, e `false` se houver algum elemento.
+- `size()`: retorna o número de elementos da lista.
+- `toString()`: retorna uma string representando a lista.
+
+# Listas encadeadas circulares (Circularly Linked Lists)
