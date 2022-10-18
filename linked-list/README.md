@@ -176,7 +176,7 @@ insert(newElement, prevNode) {
 
 A função `remove()` de uma _doubly linked list_ não precisa invocar uma função `findPrevious()`. Para ser implementada, aquela deve achar o _node_ que contém o elemento a ser removido, e atribuir o sucessor deste à propriedade `next` do seu antecessor.
 
-![Esquema de remoção de items de uma lista duplamente encadeada](../../remove-doubly-linked-list.png 'Esquema de remoção de items de uma lista duplamente encadeada')
+![Esquema de remoção de items de uma lista duplamente encadeada](../remove-doubly-linked-list.png 'Esquema de remoção de items de uma lista duplamente encadeada')
 
 ```javascript
 remove(element) {
