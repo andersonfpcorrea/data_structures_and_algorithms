@@ -218,4 +218,4 @@ Para inserir ou remover um elemento da lista, basta redefinir os elos entre os _
 
 Para remover _bacon_ da lista, basta fazer _biscoito_ apontar para _null_.
 
-_[Clique aqui para ver a implementação, exemplos de uso e exercícios de listas encadeadas](./deque/)_
+_[Clique aqui para ver a implementação, exemplos de uso e exercícios de listas encadeadas](./linked-list/)_
