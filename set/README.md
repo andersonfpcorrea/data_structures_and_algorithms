@@ -1,6 +1,7 @@
 ## Índice:
   - [Implementação](#implementação)
   - [Operações](#operações)
+  - [ES6 Set](#ecmascript-2015-es6-set-class)
 
 # Implementação
 
@@ -46,7 +47,7 @@ clear() [
 ]
 ```
 
-# O método _size()_
+## O método _size()_
 
 ```javascript
 size() {
