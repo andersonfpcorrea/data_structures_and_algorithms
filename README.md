@@ -13,6 +13,7 @@ O conteúdo aqui presente foi cotejado de diversas fontes e tem objetivo apenas 
   - [Filas (Queues)](#filas-queues)
   - [Filas duplamente terminadas (Deques)](#filas-duplamente-terminadas-deques)
   - [Listas encadeadas (Linked lists)](#listas-encadeadas-linked-lists)
+  - [Conjuntos (Sets)](#sets-conjuntos)
 
 ## INTRODUÇÃO: Objetos e programação orientada a objetos
 
@@ -219,3 +220,31 @@ Para inserir ou remover um elemento da lista, basta redefinir os elos entre os _
 Para remover _bacon_ da lista, basta fazer _biscoito_ apontar para _null_.
 
 _[Clique aqui para ver a implementação, exemplos de uso e exercícios de listas encadeadas](./linked-list/)_
+
+## Sets (conjuntos)
+
+_Set_ é uma coleção de dados desordenados e únicos (valores não podem se repetir). Esta estrutura de dados usa o conceito metemático de conjuntos finitos aplicado a estrutura de dados computacional.
+
+Em matemática, um _conjunto_ (ou _set_) é uma coleção de objetos distintos. Por exemplo, o conjunto dos números naturais é a coleção de números inteiros positivos `N = {0, 1, 2, 3...}`.
+
+_Conjuntos_ matemáticos possuem, ainda, algumas operações básicas: união, intercessão e diferença. A estrutura de dados _set_ também possui essas características.
+
+Podemos iniciar uma classe `Set` desta forma:
+
+```javascript
+class Set {
+  constructor() {
+    this.items = {};
+  }
+}
+```
+
+Precisamos então declarar os métodos disponíveis para um _set_:
+ - `add(element)`: Adiciona um novo elemento ao _set_;
+ - `delete(element)`: Apaga um novo elemento do _set_;
+ - `has(element)`: Retorna `true` se `element` existe no conjunto e `falso` se não existir;
+ - `clear()`: Remove todos os elementos do conjunto;
+ - `size()`: Retorna o número de elementos do conjunto;
+ - `values()`: Retorna um _array_ com todos os valores (`elements`) do conjunto;
+
+_[Implementação da classe Set](./set/README.md)_
