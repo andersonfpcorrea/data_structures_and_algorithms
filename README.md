@@ -1,6 +1,6 @@
-# Estruturas de dados e algorítmos
+# Estruturas de dados e algoritmos
 
-Este repositório consiste num resumo sobre principais estruturas de dados e algorítmos, implementados na linguagem de programação JavaScript.
+Este repositório consiste num resumo sobre principais estruturas de dados e algoritmos, implementados na linguagem de programação JavaScript.
 
 O conteúdo aqui presente foi cotejado de diversas fontes e tem objetivo apenas educacional.
 
