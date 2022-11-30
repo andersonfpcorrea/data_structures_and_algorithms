@@ -2,9 +2,9 @@
 
 ## Implementação com Objeto _[aqui](./StackObject.js)_
 
-## Exercícios _[aqui](./exercises.js)_
+## Exercícios _[aqui](./exercicios/)_
 
-## Exemplos de uso _[aqui](./exemplos_de_uso/README.md)_
+## Exemplos de uso _[aqui](./exemplos_de_uso/)_
 
 # Criando um stack com objetos
 
