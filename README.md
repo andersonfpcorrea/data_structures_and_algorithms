@@ -229,7 +229,7 @@ _[Clique aqui para ver a implementação, exemplos de uso e exercícios de lista
 
 ## Sets (conjuntos)
 
-_Set_ é uma coleção de dados desordenados e únicos (valores não podem se repetir). Esta estrutura de dados usa o conceito metemático de conjuntos finitos aplicado a estrutura de dados computacional.
+_Set_ é uma coleção de dados desordenados e únicos (valores não podem se repetir). Esta estrutura de dados usa o conceito metemático de conjuntos finitos aplicado a uma estrutura de dados computacional.
 
 Em matemática, um _conjunto_ (ou _set_) é uma coleção de objetos distintos. Por exemplo, o conjunto dos números naturais é a coleção de números inteiros positivos `N = {0, 1, 2, 3...}`.
 
