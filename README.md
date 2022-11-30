@@ -267,7 +267,7 @@ _[Implementação da classe Set](./set/README.md)_
 
 Um **dicionário** é usado para guardar pares de chave/valor, podendo a _chave_ ser usada para encontrar o _valor_. Dicionários são também chamados **mapas**, **tabela de símbolos** ou **arrays associativos**.
 
-ECMAScript 2015 contém uma implementação de dicionário: a classe `Map`.
+Objetos em JavaScript são desenhados para serem operados como dicionários. Além disso, a partir de ECMAScript 2015, uma outra implementação de dicionário foi adicionada à linguagem: a classe `Map`.
 
 Mais sobre `Map` [aqui](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map)
 
@@ -279,6 +279,14 @@ _Hash table_ (tabela _hash_, ou tabela de espelhamento), também conhecida como 
 
 Enquanto outras estruturas têm de iterar seus elementos para encontrar um valor específico, a _hash table_ é capaz de retornar diretamente o valor, dada certa chave, sem necessidade de iterar por seus elementos.
 
-A função _hash_ que iremos implementar a seguir chama-se **lose-lose hash**, em que são somados todos os valores ASCII dos caracteres das chaves.
+_Hash tables_ possibilitam muita rapidez para inserção, exclusão e extração de dados, porém têm baixa performance em operações que envolvem buscas (como achar o valor mínimo e máximo de um conjunto de dados) - para buscas, estruturas como _binary search tree_ são mais adequadas.
 
-[Implementação da classe _HashTable_ aqui](./hash-table/README.md)
+São salvos numa _hash table_ dados em pares _key/value_. Cada _key_ é associada a um _hash_, que por sua vez é criado com uma _função hash_.
+
+As tabelas de dispersão têm muitos casos de uso. Podem ser usadas, por exemplo, para _indexar_ tabelas de um banco de dados e extrair dados mais rapidamente. Outro uso comum dessa estrutura é a representação de objetos: a linguagem JavaScript usa internamente _hash table_ para representar os objetos; assim, cada propriedade ou método do objeto é representado como uma _key_, e as _keys_ apontam para o seu respectivo membro no objeto
+
+A função _hash_ que iremos implementar a seguir chama-se **lose-lose hash**, em que são somados todos os valores ASCII dos caracteres das chaves. A figura abaixo ilustra o conceito de _hashing_ e o uso da _função hash_:
+
+![Hash table implementing lose-lose hash](./hash-table-loselosehash.png)
+
+[Clique aqui para ver a implementação, exemplos de uso e exercícios de _hash tables_](./hash-table/README.md)
