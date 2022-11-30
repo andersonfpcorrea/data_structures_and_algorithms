@@ -14,6 +14,7 @@ O conteúdo aqui presente foi cotejado de diversas fontes e tem objetivo apenas 
   - [Filas duplamente terminadas (Deques)](#filas-duplamente-terminadas-deques)
   - [Listas encadeadas (Linked lists)](#listas-encadeadas-linked-lists)
   - [Conjuntos (Sets)](#sets-conjuntos)
+  - [Dicionários (Dictionaries)](#dicionário-dictionary)
 
 ## INTRODUÇÃO: Objetos e programação orientada a objetos
 
@@ -248,3 +249,21 @@ Precisamos então declarar os métodos disponíveis para um _set_:
  - `values()`: Retorna um _array_ com todos os valores (`elements`) do conjunto;
 
 _[Implementação da classe Set](./set/README.md)_
+
+## Dicionário (dictionary)
+
+Um **dicionário** é usado para guardar pares de chave/valor, podendo a _chave_ ser usada para encontrar o _valor_. Dicionários são também chamados **mapas**, **tabela de símbolos** ou **arrays associativos**.
+
+ECMAScript 2015 contém uma implementação de dicionário: a classe `Map`.
+
+Mais sobre `Map` [aqui](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map)
+
+## Tabela de hash (Hash table)
+
+_Hash table_, também conhecida como _hash map_, é um tipo de _dicionário_.
+
+**Hashing** consiste em achar um valor numa estrutura de dados no tempo mais curto possível. Enquanto outras estruturas tem de iterar seus elementos para encontrar um valor específico, a _hash table_, através de uma função _hash_, é capaz de retornar diretamente o valor, dada certa chave, sem necessidade de iterar por seus elementos.
+
+A função _hash_ que iremos implementar a seguir chama-se **lose-lose hash**, em que são somados todos os valores ASCII dos caracteres das chaves.
+
+[Implementação da classe _HashTable_ aqui](./hash-table/README.md)
