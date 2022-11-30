@@ -277,7 +277,7 @@ Mais sobre `Map` [aqui](https://developer.mozilla.org/en-US/docs/Web/JavaScript/
 
 _Hash table_ (tabela _hash_, ou tabela de espelhamento), também conhecida como _hash map_, é um tipo de _dicionário_.
 
-**Hashing** consiste em achar um valor numa estrutura de dados no tempo mais curto possível. Enquanto outras estruturas têm de iterar seus elementos para encontrar um valor específico, a _hash table_, através de uma função _hash_, é capaz de retornar diretamente o valor, dada certa chave, sem necessidade de iterar por seus elementos.
+Enquanto outras estruturas têm de iterar seus elementos para encontrar um valor específico, a _hash table_ é capaz de retornar diretamente o valor, dada certa chave, sem necessidade de iterar por seus elementos.
 
 A função _hash_ que iremos implementar a seguir chama-se **lose-lose hash**, em que são somados todos os valores ASCII dos caracteres das chaves.
 
