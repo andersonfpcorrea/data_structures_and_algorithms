@@ -275,7 +275,7 @@ Mais sobre `Map` [aqui](https://developer.mozilla.org/en-US/docs/Web/JavaScript/
 
 ## Tabela de dispersão (Hash table)
 
-_Hash table_ (tabela _hash_, ou tabela de espelhamento), também conhecida como _hash map_, é um tipo de _dicionário_.
+_Hash table_ (tabela _hash_, ou tabela de espelhamento) é um tipo de _dicionário_.
 
 Enquanto outras estruturas têm de iterar seus elementos para encontrar um valor específico, a _hash table_ é capaz de retornar diretamente o valor, dada certa chave, sem necessidade de iterar por seus elementos.
 
