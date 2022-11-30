@@ -159,7 +159,7 @@ _[Clique aqui para ver a implementação de deques](./deque/)_
 
 _Arrays_ não são a melhor estrutura de dados em algumas situações. Em muitas linguagens de programação, _arrays_ tem tamanho fixo, tornando trabalhosa a adição de elementos quando o tamanho máximo é alcançado. Além disso, nessas mesmas linguagens, adicionar e remover elementos de um _array_ significa ter de realocar o índice de todos os outros elementos. Essas dificuldades, porém, não existem em JavaScript - podemos usar _shift()_ ou _split()_ sem a preocupação de acessar outros elementos do _array_.
 
-O principal problema de _arrays_ em JavaScript, no entanto, é eles serem implementados como objetos, tornando-os menos eficientes que _arrays_ construídos outras linguagem (C++ e Java, por exemplo).
+O principal problema de _arrays_ em JavaScript, no entanto, é eles serem implementados como objetos, tornando-os menos eficientes que _arrays_ construídos em outras linguagem (C++ e Java, por exemplo).
 
 ### Que é um _array_?
 
