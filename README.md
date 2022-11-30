@@ -6,7 +6,7 @@ O conteúdo aqui presente foi cotejado de diversas fontes e tem objetivo apenas 
 
 ## Índice
 
-- [Introdução: objetos e programação orientada a objetos](#introdução-objetos-e-programação-orientada-a-objetos)
+- [Introdução: objetos e classes em JavaScript](#introdução-objetos-e-programação-orientada-a-objetos)
 - [Implementação das estruturas de dados](#implementações-das-estruturas-de-dados)
   - [Listas (Lists)](#listas)
   - [Pilhas (Stacks)](#pilhas-stacks)
@@ -17,7 +17,9 @@ O conteúdo aqui presente foi cotejado de diversas fontes e tem objetivo apenas 
   - [Dicionários (Dictionaries)](#dicionário-dictionary)
   - [Tabelas de dispersão (Hash Tables)](#tabela-de-dispersão-hash-table)
 
-## INTRODUÇÃO: Objetos e programação orientada a objetos
+</br>
+
+# Introdução: Objetos e classes em JavaScript
 
 Objectos, na linguagem JavaScript, são criados por uma função construtora que inclui declarações para os atributos e métodos do objeto, por exemplo:
 
@@ -76,7 +78,9 @@ const account = new Account(100);
 
 Classes, portanto, são moldes (ou templates) de objetos.
 
-## Implementações das estruturas de dados
+</br>
+
+# Implementações das estruturas de dados
 
 ## Listas
 
