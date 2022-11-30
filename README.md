@@ -145,6 +145,8 @@ A operação de checar o primeiro elemento da fila chama-se _peek_. Essa operaç
 
 _[Clique aqui para ver a implementação, exemplos e exercícios relacionados a filas](./queue/)_
 
+<hr>
+
 ## Filas Duplamente Terminadas (Deques)
 
 A estrutura de dados _deque_ (_**d**ouble **e**nded **q**ueue_), também conhecida como _double-ended queue_, é um tipo especial de fila que permite inserir e remover elementos do fim e do início dela.
@@ -152,6 +154,8 @@ A estrutura de dados _deque_ (_**d**ouble **e**nded **q**ueue_), também conheci
 Uma aplicação comum de _deques_ é armazenar uma lista de operações desfeitas (_undo operations_). Cada vez que um usuário realiza uma operação no software, a operação é guardada numa _deque_. Quando o usuário clica num botão "desfazer", a opearção é removida da _deque_ - ou seja, a operação do fim é removida (assim como uma _stack_). Depois de uma quantidade pre-definida de operações, os dados mais antigos da _deque_ são removidos da frente da _deque_ (assim como uma _queue_). Porque esta estrutura de dados implementa os princípios FIFO e LIFO, podemos dizer que _deques_ são uma mescla entre filas e pilhas.
 
 _[Clique aqui para ver a implementação de deques](./deque/)_
+
+<hr>
 
 ## Listas encadeadas (Linked Lists)
 
@@ -227,6 +231,8 @@ Para remover _bacon_ da lista, basta fazer _biscoito_ apontar para _null_.
 
 _[Clique aqui para ver a implementação, exemplos de uso e exercícios de listas encadeadas](./linked-list/)_
 
+<hr>
+
 ## Sets (conjuntos)
 
 _Set_ é uma coleção de dados desordenados e únicos (valores não podem se repetir). Esta estrutura de dados usa o conceito metemático de conjuntos finitos aplicado a uma estrutura de dados computacional.
@@ -255,6 +261,8 @@ Precisamos então declarar os métodos disponíveis para um _set_:
 
 _[Implementação da classe Set](./set/README.md)_
 
+<hr>
+
 ## Dicionário (dictionary)
 
 Um **dicionário** é usado para guardar pares de chave/valor, podendo a _chave_ ser usada para encontrar o _valor_. Dicionários são também chamados **mapas**, **tabela de símbolos** ou **arrays associativos**.
@@ -262,6 +270,8 @@ Um **dicionário** é usado para guardar pares de chave/valor, podendo a _chave_
 ECMAScript 2015 contém uma implementação de dicionário: a classe `Map`.
 
 Mais sobre `Map` [aqui](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map)
+
+<hr>
 
 ## Tabela de dispersão (Hash table)
 
