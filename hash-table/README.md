@@ -82,7 +82,7 @@ get(key) {
 ```
 Primeiro achamos a posição da _key_ com a função _hashCode_, então acessamos a tabela nessa posição. Por fim a função retorna o valor associado à chave.
 
-## Removendo valores da tablea hash
+## Removendo valores da tablea _hash_
 
 ```javascript
 remove(key) {

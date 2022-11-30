@@ -15,6 +15,7 @@ O conteúdo aqui presente foi cotejado de diversas fontes e tem objetivo apenas 
   - [Listas encadeadas (Linked lists)](#listas-encadeadas-linked-lists)
   - [Conjuntos (Sets)](#sets-conjuntos)
   - [Dicionários (Dictionaries)](#dicionário-dictionary)
+  - [Tabelas de dispersão (Hash Tables)](#tabela-de-dispersão-hash-table)
 
 ## INTRODUÇÃO: Objetos e programação orientada a objetos
 
@@ -258,9 +259,9 @@ ECMAScript 2015 contém uma implementação de dicionário: a classe `Map`.
 
 Mais sobre `Map` [aqui](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map)
 
-## Tabela de hash (Hash table)
+## Tabela de dispersão (Hash table)
 
-_Hash table_, também conhecida como _hash map_, é um tipo de _dicionário_.
+_Hash table_ (tabela _hash_, ou tabela de espelhamento), também conhecida como _hash map_, é um tipo de _dicionário_.
 
 **Hashing** consiste em achar um valor numa estrutura de dados no tempo mais curto possível. Enquanto outras estruturas tem de iterar seus elementos para encontrar um valor específico, a _hash table_, através de uma função _hash_, é capaz de retornar diretamente o valor, dada certa chave, sem necessidade de iterar por seus elementos.
 
