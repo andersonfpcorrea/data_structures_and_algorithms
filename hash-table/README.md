@@ -49,7 +49,7 @@ class ValuePair {
 }
 ```
 
-A seguir, precisamos implementar três métodos básicos na classe:
+A seguir, precisamos implementar três métodos básicos na classe HashTable:
   - `put(key, value)`: adiciona um novo item à _hash table_ (ou atualiza item existente);
   - `remove(key, value)`: remove o _valor_ da tabela cuja chave é _key_;
   - `get(key)`: retorna o _valor_ associado à _key_;
