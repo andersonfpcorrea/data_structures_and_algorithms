@@ -283,7 +283,7 @@ _Hash tables_ possibilitam muita rapidez para inserção, exclusão e extração
 
 São salvos numa _hash table_ dados em pares _key/value_. Cada _key_ é associada a um _hash_, que por sua vez é criado com uma _função hash_.
 
-As tabelas de dispersão têm muitos casos de uso. Podem ser usadas, por exemplo, para _indexar_ tabelas de um banco de dados e extrair dados mais rapidamente. Outro uso comum dessa estrutura é a representação de objetos: a linguagem JavaScript usa internamente _hash table_ para representar os objetos; assim, cada propriedade ou método do objeto é representado como uma _key_, e as _keys_ apontam para o seu respectivo membro no objeto
+As tabelas de dispersão têm muitos casos de uso. Podem ser usadas, por exemplo, para _indexar_ tabelas de um banco de dados e extrair dados mais rapidamente. Outro uso comum dessa estrutura é a representação de objetos: a linguagem JavaScript usa internamente _hash table_ para representar os objetos; assim, cada propriedade ou método do objeto é representado como uma _key_, e as _keys_ apontam para o seu respectivo membro no objeto.
 
 A função _hash_ que iremos implementar a seguir chama-se **lose-lose hash**, em que são somados todos os valores ASCII dos caracteres das chaves. A figura abaixo ilustra o conceito de _hashing_ e o uso da _função hash_:
 
