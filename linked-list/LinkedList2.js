@@ -1,7 +1,11 @@
 import Node from './Node.js';
-import { defaultEquals } from '../utils';
+import { defaultEquals } from '../utils.js';
 
 export default class LinkedList2 {
+  #count;
+  #head;
+  #equalsFn;
+
   constructor(equalsFn = defaultEquals) {
     this.#count = 0;
     this.#head = null;
