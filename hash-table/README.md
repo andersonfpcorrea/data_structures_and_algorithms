@@ -1,6 +1,7 @@
 ## Índice
   - [Criando a classe HashTable](#criando-a-classe-hashtable)
   - [Lidando com colisões](#lidando-com-colisões)
+    - [Encadeamento (Separate chaining)](#encadeamento-separate-chaining)
 
 </br>
 
@@ -9,11 +10,12 @@
 Usaremos um _objeto_ para representar a estrutura de dados.
 
 ```javascript
-import { defaultCompare } from '../utils.js';
+import { defaultToString } from '../utils.js';
 
 class HashTable {
   #table
-  #toStrFn() {}
+  #toStrFn;
+
   constructor(toStrFn = defaultToString) {
     this.#toStrFn = toStrFn;
     this.#table = {};
@@ -127,10 +129,11 @@ remove(key) {
 Para remover um valor da _hash table_, primeiro identificamos sua posição com a função `hashCode`. Caso o _valor_ seja diferente de `null` (pois _hash tables_ não aceitam `null` como uma chave válida), deletamos esse valor com o operador `delete`. A função retornar `true` se a remoção aconteceu, ou `false` caso a remoção não tenha ocorrido.
 
 <hr>
+</br>
 
 # Lidando com colisões
 
-Às vezes chaves diferentes podem ter o mesmo _hash_. Chamamos essa situação **colisão** porque diferentes pares _chave/valor_ nessa situação são atribuidos à mesma posição de uma _hash table_.
+Às vezes chaves diferentes podem ter o mesmo _hash_. Chamamos essa situação **colisão** porque diferentes pares _chave/valor_ são atribuidos à mesma posição de uma _hash table_.
 
 Suponha a seguinte situação:
 
@@ -151,9 +154,75 @@ toString() {
   let objString = `{${keys[0]} => ${this.#table[keys[0]].toString()}}`;
 
   for (let i = 1; i < keys.length; i++) {
-    objString = `${objString},{${keys[i]}} => ${this.#table[keys[i]].toString()}}`
+    objString = `${objString}\n{${keys[i]} => ${this.#table[keys[i]].toString()}}`
   }
 
   return objString;
+}
+```
+
+Após chamar `console.log(hash.toSring())` teremos o seguinte resultado:
+
+```javascript
+console.log(hash.toString());
+// {5 => [#Sue: sue@email.com]}
+```
+
+`Jonathan`, `Jamie` e `Sue` receberam uma mesma _hash_, e `Sue`, por ter sido a última adição à tabela, fica sendo a ocupante da posição `5`.
+
+Há algumas técnicas para lidar com colisões: _separate chaining_ (encadeamento), _linear probing_ (sondagem linear) e _double hashing_. Comentaremos a seguir acerca das duas primeiras.
+
+## Encadeamento (Separate chaining)
+
+A técnica **separate chaining** consiste em criar uma lista encadeada (_linked list_) para cada posição da tabela, armazenando elementos nessa lista. É o modo mais simples de lidar com colisões, no entanto requer consumo adicional de memória fora da instância da _hash table_.
+
+<figure>
+    <img src="../separate-chaining-example.png"
+         alt="Separate chaining">
+    <figcaption>Os valores foram omitidos para simplificar o diagrama</figcaption>
+</figure>
+
+Para usar as técnicas _separate chaining_ e _linear probing_ precisamos alterar três métodos: `put`, `get`, `remove`. Esses métodos serão diferentes para cada técnica.
+
+Começemos com a implementação da classe `HashTableSeparateChaining`:
+
+```javascript
+import ValuePair from './ValuePair.js';
+import LinkedList from '../linked-list/LinkedList.js';
+import { defaultToString } from '../utils.js';
+
+class HashTableSeparateChaining {
+  #table;
+  constructor(toStrFn = defaultToString) {
+    this.#toStrFn = toStrFn;
+    this.#table = {};
+  }
+}
+```
+
+### Método `put` (separate chaining)
+
+```javascript
+put(key, value) {
+  if (key !== null && value !== null) {
+    const position = this.#hashCode(key);
+    if (this.#table[position] === null) {
+      this.#table[position] = new LinkedList();
+    }
+    this.#table[position].insert(new ValuePair(key, value));
+    return true;
+  }
+  return false;
+}
+```
+Verficamos se a posição em que tentaremos inserir um valor já possui outros valores. Caso seja o primeiro valor da posição, iniciamos uma instância de `LinkedList`, então adicionamos a instância de `ValuePair` à lista encadeada usando o método `insert`.
+
+### Método `get` (separate chaining)
+
+```javascript
+get(key) {
+  const position = this.#hasCode(key);
+  const linkedList = this.#table[position];
+  if (linkedList !== null && !linkedList.is)
 }
 ```
