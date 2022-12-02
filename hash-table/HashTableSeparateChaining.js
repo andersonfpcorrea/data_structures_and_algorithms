@@ -19,5 +19,6 @@ export default class HashTableSeparateChaining extends HashTable {
     if (this._table[position] === null) {
       this._table[position] = new LinkedList2();
     }
+    //! continuar daqui
   }
 }
