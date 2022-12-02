@@ -2,13 +2,13 @@ import Node from './Node.js';
 import { defaultEquals } from '../utils.js';
 
 export default class LinkedList2 {
-  _count;
   _head;
+  _count;
   _equalsFn;
 
   constructor(equalsFn = defaultEquals) {
-    this._count = 0;
     this._head = null;
+    this._count = 0;
     this._equalsFn = equalsFn;
   }
 

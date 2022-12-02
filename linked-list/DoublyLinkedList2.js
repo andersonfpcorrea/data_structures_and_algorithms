@@ -9,8 +9,8 @@ export default class DoublyLinkedList2 extends LinkedList2 {
 
   constructor(equalsFn = defaultEquals) {
     super(equalsFn);
-    this._tail = null;
     this._head = null;
+    this._tail = null;
     this._count = 0;
   }
 
