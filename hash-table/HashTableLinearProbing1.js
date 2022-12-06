@@ -79,6 +79,73 @@ export default class HashTableLinearProbing1 extends HashTable {
 
     return undefined;
   }
+
+  /**
+   *
+   * @param {unknow} key Representa a 'key' removida pelo método 'remove'
+   * @param {number} removedPosition Posição em que 'key' foi removida
+   */
+  _verifyRemoveSideEffect(key, removedPosition) {
+    // Adquire novamente a 'hash' da 'key' removida:
+    const hash = this._hashCode(key);
+    // A tabela é iterada até ser encontrado um espaço vazio:
+    let index = removedPosition + 1;
+    // Encontrar um espaço vazio significa que todos os elementos estão em seu devido
+    // lugar - devido a estratégio de sondagem linear:
+    while (this._table[index] !== null && this._table[index] !== undefined) {
+      // Enquanto a tabela é iterada, é calculado o 'hash' do elemento atual:
+      const posHash = this._hashCode(this._table[index].key);
+
+      // Se o hash do elemento atual é menor ou igual ao hash da 'removedPosition'
+      // precisamos movê-lo para ocupar 'removedPosition'. Então o elemento movido é
+      // deletado, 'removedPosition' é atualizado e o loop continua até não haver mais
+      // posições ocupadas:
+      if (posHash <= removedPosition) {
+        this._table[removedPosition] = this._table[index];
+        delete this._table[index];
+        removedPosition = index;
+      }
+      index++;
+    }
+  }
+
+  remove(key) {
+    const position = this._hashCode(key);
+
+    // Returna imediatamente 'false' se _key_ não é uma chave válida na tabela
+    if (this._table[position] === null || this._table === undefined) {
+      return false;
+    }
+    // Se o elemento é encontrado com 'position', ele é deletado
+    // E são verificados quaisquer efeitos colaterais resultantes da remoção
+    if (this._table[position].key === key) {
+      delete this._table[position];
+      this._verifyRemoveSideEffect(key, position);
+      return true;
+    }
+
+    // Caso o elemento não seja encontrado através de 'position',
+    // A tabela é iterada atrás desse elemento
+    let index = position + 1;
+    while (
+      this._table[index] !== null &&
+      this._table[index] === undefined &&
+      this._table[index] !== key
+    ) {
+      index++;
+    }
+
+    // Ao ser encontrado, o elemento é deletado e os efeitos
+    // colaterais dessa operação são verificados
+    if (this._table[index]?.key === key) {
+      delete this._table[index];
+      this._verifyRemoveSideEffect(key, index);
+      return true;
+    }
+
+    // Se nada é removido, a função retorna 'false'
+    return false;
+  }
 }
 
 const a = new HashTableLinearProbing1();
@@ -88,4 +155,10 @@ a.put('Aethelwulf', 'third');
 
 console.log(a.toString());
 
-console.log(a.get('Aethelwulf'));
+// console.log(a.get('Aethelwulf'));
+
+console.log(a.remove('Jamie'));
+console.log(a.toString());
+
+console.log(a.remove('Jonathan'));
+console.log(a.toString());
