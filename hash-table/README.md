@@ -6,6 +6,7 @@
 - [Lidando com colisões](#lidando-com-colisões)
   - [Encadeamento (Separate chaining)](#encadeamento-separate-chaining)
   - [Sondagem linear (Linear probing)](#sondagem-linear-linear-probing)
+- [Criando funções de _hash_ melhores](#criando-funções-de-hash-melhores)
 
 </br>
 
@@ -340,3 +341,9 @@ A seguinte imagem ilustra essa abordagem:
 Ambas as estratégias têm prós e contras. A seguir vai a implementação da segunda estratégia:
 
 [_Linear probing_ com realocação de elementos](./HashTableLinearProbing1.js)
+
+<hr>
+
+</br>
+
+# Criando funções de _hash_ melhores
