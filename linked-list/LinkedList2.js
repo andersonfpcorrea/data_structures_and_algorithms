@@ -58,6 +58,7 @@ export default class LinkedList2 {
     }
     // Atualiza o contador:
     this._count--;
+
     // Retorna o elemento 'removido' (ou desassociado da lista):
     return current.element;
   }
@@ -106,11 +107,13 @@ export default class LinkedList2 {
   }
 
   isEmpty() {
-    return this.size === 0;
+    return this.size() === 0;
   }
 
   toString() {
-    if (this.isEmpty()) return '';
+    if (this.isEmpty()) {
+      return '';
+    }
 
     let objString = `${this._head.element}`;
     let current = this._head.next;

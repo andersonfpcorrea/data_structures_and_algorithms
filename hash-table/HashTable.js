@@ -77,10 +77,3 @@ export default class HashTable {
     return objString;
   }
 }
-
-const hash = new HashTable();
-hash.put('Jonathan', 'jon@email.com'); // loseloseHashCode('Jonathan') retorna 5
-hash.put('Jamie', 'jamie@email.com'); // loseloseHashCode('Jamie') retorna 5
-hash.put('Sue', 'sue@email.com'); // loseloseHashCode('Sue') retorna 5
-
-console.log(hash.toString());

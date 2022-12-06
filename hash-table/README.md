@@ -1,7 +1,8 @@
 ## Índice
-  - [Criando a classe HashTable](#criando-a-classe-hashtable)
-  - [Lidando com colisões](#lidando-com-colisões)
-    - [Encadeamento (Separate chaining)](#encadeamento-separate-chaining)
+
+- [Criando a classe HashTable](#criando-a-classe-hashtable)
+- [Lidando com colisões](#lidando-com-colisões)
+  - [Encadeamento (Separate chaining)](#encadeamento-separate-chaining)
 
 </br>
 
@@ -13,7 +14,7 @@ Usaremos um _objeto_ para representar a estrutura de dados.
 import { defaultToString } from '../utils.js';
 
 class HashTable {
-  #table
+  #table;
   #toStrFn;
 
   constructor(toStrFn = defaultToString) {
@@ -46,16 +47,16 @@ class ValuePair {
     this.#value = value;
   }
   toString() {
-    return `[#${this.#key}: ${this.#value}]`
+    return `[#${this.#key}: ${this.#value}]`;
   }
 }
 ```
 
 A seguir, precisamos implementar três métodos básicos na classe HashTable:
-  - `put(key, value)`: adiciona um novo item à _hash table_ (ou atualiza item existente);
-  - `remove(key, value)`: remove o _valor_ da tabela cuja chave é _key_;
-  - `get(key)`: retorna o _valor_ associado à _key_;
 
+- `put(key, value)`: adiciona um novo item à _hash table_ (ou atualiza item existente);
+- `remove(key, value)`: remove o _valor_ da tabela cuja chave é _key_;
+- `get(key)`: retorna o _valor_ associado à _key_;
 
 ## Criando a função _hash_
 
@@ -81,7 +82,7 @@ Antes de implementar os três métodos mencionados acima, precisamos criar a fun
 
 No método `loseloseHashCode` verificamos se `key` é um número; caso seja, a função retorna esse número. Em seguida, é gerado um número através da soma dos valores ASCII de todas os caracteres da _key_. Por fim, a função retorna o valor _hash_. Para trabalharmos com números baixos, usamos o resto da divisão do _hash_ por um número arbitrário - isso previne trabalharmos com números muito grandes.
 
-OBS: mais sobre a tabela ASCII  [aqui](https://www.asciitable.com/)
+OBS: mais sobre a tabela ASCII [aqui](https://www.asciitable.com/)
 
 Com a função _hash_ concluída, podemos implementar os outros métodos.
 
@@ -110,6 +111,7 @@ get(key) {
   return valuePair === null ? undefined : valuePair.value
 }
 ```
+
 Primeiro achamos a posição da _key_ com a função _hashCode_, então acessamos a tabela nessa posição. Por fim a função retorna o valor associado à chave.
 
 ## Removendo valores da tabela _hash_
@@ -129,6 +131,7 @@ remove(key) {
 Para remover um valor da _hash table_, primeiro identificamos sua posição com a função `hashCode`. Caso o _valor_ seja diferente de `null` (pois _hash tables_ não aceitam `null` como uma chave válida), deletamos esse valor com o operador `delete`. A função retornar `true` se a remoção aconteceu, ou `false` caso a remoção não tenha ocorrido.
 
 <hr>
+
 </br>
 
 # Lidando com colisões
@@ -139,9 +142,9 @@ Suponha a seguinte situação:
 
 ```javascript
 const hash = new HashTable();
-hash.put('Jonathan', 'jon@email.com') // loseloseHashCode('Jonathan') retorna 5 
-hash.put('Jamie', 'jamie@email.com') // loseloseHashCode('Jamie') retorna 5
-hash.put('Sue', 'sue@email.com') // loseloseHashCode('Sue') retorna 5
+hash.put('Jonathan', 'jon@email.com'); // loseloseHashCode('Jonathan') retorna 5
+hash.put('Jamie', 'jamie@email.com'); // loseloseHashCode('Jamie') retorna 5
+hash.put('Sue', 'sue@email.com'); // loseloseHashCode('Sue') retorna 5
 ```
 
 Podemos implementar a seguinte função `toString` na classe `HashTable` para verificar como ficaria a tabela após as inserções acima.
@@ -182,20 +185,22 @@ A técnica **separate chaining** consiste em criar uma lista encadeada (_linked 
     <figcaption>Os valores foram omitidos para simplificar o diagrama</figcaption>
 </figure>
 
-Para usar as técnicas _separate chaining_ e _linear probing_ precisamos alterar três métodos: `put`, `get`, `remove`. Esses métodos serão diferentes para cada técnica.
+Para usar as técnicas _separate chaining_ e _linear probing_ precisamos alterar três métodos: `put`, `get`, e `remove`. Esses métodos serão diferentes para cada técnica.
 
 Começemos com a implementação da classe `HashTableSeparateChaining`:
 
 ```javascript
 import ValuePair from './ValuePair.js';
-import LinkedList from '../linked-list/LinkedList.js';
+import LinkedList2 from '../linked-list/LinkedList2.js';
 import { defaultToString } from '../utils.js';
+import HashTable from './HashTable.js';
 
-class HashTableSeparateChaining {
-  #table;
+export default class HashTableSeparateChaining extends HashTable {
+  _table;
+
   constructor(toStrFn = defaultToString) {
-    this.#toStrFn = toStrFn;
-    this.#table = {};
+    super(toStrFn);
+    this._table = {};
   }
 }
 ```
@@ -204,25 +209,95 @@ class HashTableSeparateChaining {
 
 ```javascript
 put(key, value) {
-  if (key !== null && value !== null) {
-    const position = this.#hashCode(key);
-    if (this.#table[position] === null) {
-      this.#table[position] = new LinkedList();
-    }
-    this.#table[position].insert(new ValuePair(key, value));
-    return true;
+  // If any 'nullish' value is passed into 'put' return 'false':
+  if (
+    key === undefined ||
+    key === null ||
+    value === undefined ||
+    value === null
+  )
+    return false;
+  // Hash the key
+  const position = this._hashCode(key);
+ // If there the position is empty, create a new linked list into it
+  if (this._table[position] === null || this._table[position] === undefined) {
+    this._table[position] = new LinkedList2();
   }
-  return false;
+ // Insert the key/value into the linked list
+  this._table[position].push(new ValuePair(key, value));
+ // Return 'true' if the addition is successfull
+  return true;
 }
 ```
+
 Verficamos se a posição em que tentaremos inserir um valor já possui outros valores. Caso seja o primeiro valor da posição, iniciamos uma instância de `LinkedList`, então adicionamos a instância de `ValuePair` à lista encadeada usando o método `insert`.
 
 ### Método `get` (separate chaining)
 
 ```javascript
 get(key) {
-  const position = this.#hasCode(key);
-  const linkedList = this.#table[position];
-  if (linkedList !== null && !linkedList.is)
+  const position = this._hashCode(key);
+  const linkedList = this._table[position];
+  // If there is no such key, return 'undefined'
+  if (
+    linkedList === null ||
+    linkedList === undefined ||
+    linkedList?.isEmpty()
+  ) {
+    return undefined;
+  }
+  // Get the 'head' reference of the list
+  let current = linkedList.head;
+  // Find the wanted element based on the 'key'
+  while (current !== null) {
+    if (current.element.key === key) {
+      return current.element.value;
+    }
+    current = current.next;
+  }
 }
 ```
+
+Descobrimos a _hash_ da key inserida na função, então acessamos a posição _position_ na tabela, salvando o valor na variável _linkedList_.
+Se _linkedList_ é `nullish` ou é uma lista vazia, o método retorna `undefined`.
+
+Caso a lista não esteja vazia, iteramos nela até encontrar o elemento cuja propriedade _key_ seja igual ao argumento _key_ passado no método `get`.
+
+### Método `remove` (separate chaining)
+
+```javascript
+remove(key) {
+  const position = this._hashCode(key);
+  const linkedList = this._table[position];
+  //If there is no such key, return 'false'
+  if (
+    linkedList === null ||
+    linkedList === undefined ||
+    linkedList?.isEmpty()
+  ) {
+    return false;
+  }
+  // Get the head reference of the list:
+  let current = linkedList.head;
+  // Find the element to be deleted:
+  while (current !== null) {
+    if (current.element.key === key) {
+      // When found, remove the element
+      linkedList.remove(current.element);
+      // If the list becomes empty, it is removed from the table
+      if (linkedList.isEmpty()) {
+        delete this._table[position];
+      }
+      // Retur 'true' to confirm the deletion
+      return true;
+    }
+    current = current.next;
+  }
+}
+```
+
+Assim como no método `get`, primeiramente é verificado se há algum valor na tabela com a _key_ passada como argumento.
+
+Caso haja uma lista na posição informada, iteramos sobre ela até encontrar o elemento cuja propriedade _key_ seja igual ao argumento passado no método `remove`. Então, o elemento encontrado é removido, usando o método `remove` da classe `LinkedList2`.
+
+Por fim, caso a lista tenha ficado vazia após a remoção do elemento, a entrada afetada da tabela é removida, e a função retorna `true`.
