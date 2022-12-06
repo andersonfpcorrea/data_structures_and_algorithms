@@ -347,3 +347,29 @@ Ambas as estratégias têm prós e contras. A seguir vai a implementação da se
 </br>
 
 # Criando funções de _hash_ melhores
+
+A função _hash_ **lose-lose** não é boa por gerar muitas colisões. Uma boa _hash function_ deve ter as seguintes propriedades:
+
+- Baixo tempo de inserção e extração de dados (performance);
+- Baixa probabilidade de colisões
+
+Um função simples que é melhor que a **lose-lose** chama-se **djb2**:
+
+```javascript
+djb2HashCode(key) {
+  const tableKey = this._toStrFn(key);
+  let hash = 5381;
+  for (let i = 0; i < tableKey.length; i++) {
+    hash = (hash * 33) + tableKey.charCodeAt(i);
+  }
+  return hash % 1013;
+}
+```
+
+Transformada a _key_ em `string`, a função `djb2HashCode` inicia a variável `hash` com um número primo (a maioria das implementações usa `5381`); então, iterando por cada caracter da `string` representante da _key_, multiplica _hash_ por `33` (usado como _magic number_) e soma este valor com o valor ASCII do caracter.
+
+Por fim, a função retorna o resto da divisão de _hash_ por outro número primo aleatório, que deve ser maior que o tamanho da _hash table_.
+
+Essa, certamente, não é a melhor funcção _hash_ existente, mas é uma das mais recomendadas pela comunidade.
+
+Há, ainda, alguma técnicas para criar _hash functions_ para chaves numéricas. Uma relação destas e algumas implementações podem ser encontradas neste [link](http://web.archive.org/web/20071223173210/http://www.concentric.net/~Ttwang/tech/inthash.htm)
