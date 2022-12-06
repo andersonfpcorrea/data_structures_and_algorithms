@@ -314,3 +314,29 @@ Caso haja uma lista na posição informada, iteramos sobre ela até encontrar o 
 Por fim, caso a lista tenha ficado vazia após a remoção do elemento, a entrada afetada da tabela é removida, e a função retorna `true`.
 
 ## Sondagem linear (linear probing)
+
+Esta técnica de resolução de conflitos chama-se _sondagem linear_ porque lida com colisões armazenando os valores diretamente na tabela, e não em um estrutura de dados a parte.
+
+Basicamente, ao tentarmos adicionar um elemento numa _posição_, caso esta esteja ocupada o valor é armazenado na próxima posição vaga.
+
+O seguinte diagrama exemplifica o processo:
+
+![Linear probing](../linear-probing.png)
+
+Se usarmos _linear probing_, para remover um par _chave-valor_ da _has table_ não basta remover o elemento da sua posição na tabela, como fizemos anteriormente. Se apenas removermos o elemento da tabela, é possível que ao procurar por outros elementos com mesmo _hash_ encontremos aquela posição vazia.
+
+Há duas opções para lidar com esse problema na remoção de elementos. A primeira opção chama-se _soft delete_. Essa abordagem consiste em usar um valor convencional (_flag_) para indicar a remoção do par _chave/valor_, em vez de realmente deletar o elemento. Com o passar do tempo, no entanto, a tabela poderá conter muitas dessas _flags_, o que reduzirá a eficiência da tabela.
+
+O seguinte diagrama exemplifica a abordagem _soft (lazy) deletion_:
+
+![Soft deletion](../soft-deletion.png)
+
+A outra estratégia possível para lidar com remoção de elementos é verificar, a cada remoção, se é necessário mover algum elemento a uma posição anterior na tabela. Ao procupara por uma _chave_, essa abordagem previne encontrar espaços vazios.
+
+A seguinte imagem ilustra essa abordagem:
+
+![Shift strategy](../shift-strategy.png)
+
+Ambas as estratégias têm prós e contras. A seguir vai a implementação da segunda estratégia:
+
+[_Linear probing_ com realocação de elementos](./HashTableLinearProbing1.js)

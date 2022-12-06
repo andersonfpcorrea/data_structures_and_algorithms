@@ -252,12 +252,13 @@ class Set {
 ```
 
 Precisamos então declarar os métodos disponíveis para um _set_:
- - `add(element)`: Adiciona um novo elemento ao _set_;
- - `delete(element)`: Apaga um novo elemento do _set_;
- - `has(element)`: Retorna `true` se `element` existe no conjunto e `falso` se não existir;
- - `clear()`: Remove todos os elementos do conjunto;
- - `size()`: Retorna o número de elementos do conjunto;
- - `values()`: Retorna um _array_ com todos os valores (`elements`) do conjunto;
+
+- `add(element)`: Adiciona um novo elemento ao _set_;
+- `delete(element)`: Apaga um novo elemento do _set_;
+- `has(element)`: Retorna `true` se `element` existe no conjunto e `falso` se não existir;
+- `clear()`: Remove todos os elementos do conjunto;
+- `size()`: Retorna o número de elementos do conjunto;
+- `values()`: Retorna um _array_ com todos os valores (`elements`) do conjunto;
 
 _[Implementação da classe Set](./set/README.md)_
 
