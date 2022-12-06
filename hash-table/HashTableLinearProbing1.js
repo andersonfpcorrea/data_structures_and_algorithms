@@ -81,8 +81,7 @@ export default class HashTableLinearProbing1 extends HashTable {
   }
 
   /**
-   *
-   * @param {unknow} key Representa a 'key' removida pelo método 'remove'
+   * @param {string | number} key Representa a 'key' removida pelo método 'remove'
    * @param {number} removedPosition Posição em que 'key' foi removida
    */
   _verifyRemoveSideEffect(key, removedPosition) {
@@ -147,18 +146,3 @@ export default class HashTableLinearProbing1 extends HashTable {
     return false;
   }
 }
-
-const a = new HashTableLinearProbing1();
-a.put('Jonathan', 'first');
-a.put('Jamie', 'second');
-a.put('Aethelwulf', 'third');
-
-console.log(a.toString());
-
-// console.log(a.get('Aethelwulf'));
-
-console.log(a.remove('Jamie'));
-console.log(a.toString());
-
-console.log(a.remove('Jonathan'));
-console.log(a.toString());
