@@ -1,8 +1,11 @@
+# Hash Table
+
 ## Índice
 
 - [Criando a classe HashTable](#criando-a-classe-hashtable)
 - [Lidando com colisões](#lidando-com-colisões)
   - [Encadeamento (Separate chaining)](#encadeamento-separate-chaining)
+  - [Sondagem linear (Linear probing)](#sondagem-linear-linear-probing)
 
 </br>
 
@@ -14,16 +17,16 @@ Usaremos um _objeto_ para representar a estrutura de dados.
 import { defaultToString } from '../utils.js';
 
 class HashTable {
-  #table;
-  #toStrFn;
+  _table;
+  _toStrFn;
 
   constructor(toStrFn = defaultToString) {
-    this.#toStrFn = toStrFn;
-    this.#table = {};
+    this._toStrFn = toStrFn;
+    this._table = {};
   }
 
   size() {
-    return Object.keys(this.#table).length;
+    return Object.keys(this._table).length;
   }
 
   isEmpty() {
@@ -31,7 +34,7 @@ class HashTable {
   }
 
   clear() {
-    this.#table = {};
+    this._table = {};
   }
 }
 ```
@@ -39,7 +42,7 @@ class HashTable {
 Também criaremos uma classe para gerar um para chave/valor, que será o valor salvo na tabela. Esta classe também terá um método toString:
 
 ```javascript
-class ValuePair {
+export default class ValuePair {
   #key;
   #value;
   constructor(key, value) {
@@ -48,6 +51,14 @@ class ValuePair {
   }
   toString() {
     return `[#${this.#key}: ${this.#value}]`;
+  }
+
+  get key() {
+    return this.#key;
+  }
+
+  get value() {
+    return this.#value;
   }
 }
 ```
@@ -63,10 +74,10 @@ A seguir, precisamos implementar três métodos básicos na classe HashTable:
 Antes de implementar os três métodos mencionados acima, precisamos criar a função _hash_:
 
 ```javascript
-#loseloseHashCode(key) {
+_loseloseHashCode(key) {
   if (typeof key === 'number') return key;
 
-  const tableKey = this.#toStrFn(key);
+  const tableKey = this._toStrFn(key);
   let hash = 0;
   for (let i = 0; i < tableKey.length; i++) {
     hash += tableKey.charCodeAt(i);
@@ -75,8 +86,8 @@ Antes de implementar os três métodos mencionados acima, precisamos criar a fun
   return hash % 37
 }
 
-#hashCode(key) {
-  return this.#loseloseHashCode(key);
+_hashCode(key) {
+  return this._loseloseHashCode(key);
 }
 ```
 
@@ -91,8 +102,8 @@ Com a função _hash_ concluída, podemos implementar os outros métodos.
 ```javascript
 put(key, value) {
   if (key !== null && value !== null) {
-    const position = this.#hashCode(key);
-    this.#table[position] = new ValuePair(key, value);
+    const position = this._hashCode(key);
+    this._table[position] = new ValuePair(key, value);
     return true;
   }
   return false;
@@ -107,7 +118,7 @@ Para um par chave/valor válido, a função define uma posição na tabela usand
 
 ```javascript
 get(key) {
-  const valuePair = this.#table[this.#hashCode(key)];
+  const valuePair = this._table[this._hashCode(key)];
   return valuePair === null ? undefined : valuePair.value
 }
 ```
@@ -118,10 +129,10 @@ Primeiro achamos a posição da _key_ com a função _hashCode_, então acessamo
 
 ```javascript
 remove(key) {
-  const hash = this.#hashCode(key);
-  const valuePair = this.#table[hash];
+  const hash = this._hashCode(key);
+  const valuePair = this._table[hash];
   if (valuePair !== null) {
-    delete this.#table[hash];
+    delete this._table[hash];
     return true;
   }
   return false;
@@ -153,11 +164,11 @@ Podemos implementar a seguinte função `toString` na classe `HashTable` para ve
 toString() {
   if (this.isEmpty()) return '';
 
-  const keys = Object.keys(this.#table);
-  let objString = `{${keys[0]} => ${this.#table[keys[0]].toString()}}`;
+  const keys = Object.keys(this._table);
+  let objString = `{${keys[0]} => ${this._table[keys[0]].toString()}}`;
 
   for (let i = 1; i < keys.length; i++) {
-    objString = `${objString}\n{${keys[i]} => ${this.#table[keys[i]].toString()}}`
+    objString = `${objString}\n{${keys[i]} => ${this._table[keys[i]].toString()}}`
   }
 
   return objString;
@@ -301,3 +312,5 @@ Assim como no método `get`, primeiramente é verificado se há algum valor na t
 Caso haja uma lista na posição informada, iteramos sobre ela até encontrar o elemento cuja propriedade _key_ seja igual ao argumento passado no método `remove`. Então, o elemento encontrado é removido, usando o método `remove` da classe `LinkedList2`.
 
 Por fim, caso a lista tenha ficado vazia após a remoção do elemento, a entrada afetada da tabela é removida, e a função retorna `true`.
+
+## Sondagem linear (linear probing)
