@@ -93,7 +93,7 @@ Uma famoso ditato popular _dev_ diz:
 
 > "Para entender recursividade, é preciso primeiro entender recursividade." - Autor desconhecido
 
-**Recursividade** é um método usado para resolução de problemas. O método consiste em resolver pequenas porções do problema repetidamente, até que este seja resolvido.
+**Recursividade** é um método usado para resolução de problemas. O método consiste em resolver pequenas porções do problema repetidamente, até que todo o problema seja resolvido.
 
 Um método ou função é _recursivo_ se pode chamar-se a si mesmo:
 
