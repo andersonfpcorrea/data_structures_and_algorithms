@@ -6,7 +6,10 @@ O conteúdo aqui presente foi cotejado de diversas fontes e tem objetivo apenas 
 
 ## Índice
 
-- [Introdução: objetos e classes em JavaScript](#introdução-objetos-e-programação-orientada-a-objetos)
+- [Introdução](#introdução)
+  - [Objetos e classes em JavaScript](#objetos-e-classes-em-javascript)
+  - [Recursividade](#recursividade-recursion)
+  - [Call stack](#call-stack)
 - [Implementação das estruturas de dados](#implementações-das-estruturas-de-dados)
   - [Listas (Lists)](#listas)
   - [Pilhas (Stacks)](#pilhas-stacks)
@@ -19,7 +22,9 @@ O conteúdo aqui presente foi cotejado de diversas fontes e tem objetivo apenas 
 
 </br>
 
-# Introdução: Objetos e classes em JavaScript
+## Introdução
+
+## Objetos e classes em JavaScript
 
 Objectos, na linguagem JavaScript, são criados por uma função construtora que inclui declarações para os atributos e métodos do objeto, por exemplo:
 
@@ -80,13 +85,106 @@ Classes, portanto, são moldes (ou templates) de objetos.
 
 </br>
 
-# Implementações das estruturas de dados
+## Recursividade (recursion)
 
-## Listas
+### **Entendendo recursividade**
+
+> "Para entender recursividade, é preciso primeiro entender recursividade." - Autor desconhecido
+
+**Recursividade** é um método usado para resolução de problemas. O método consiste em resolver pequenas porções do problema repetidamente, até que este seja resolvido.
+
+Um método ou função é _recursivo_ se pode chamar-se a si mesmo:
+
+```javascript
+function recursive(param) {
+  recursive(param);
+}
+```
+
+Um função também é considerada _recursiva_ se ela pode chamar-se indiretamente:
+
+```javascript
+function recursive(param) {
+  recursive2(param);
+}
+
+function recursive2(param) {
+  recursive(param);
+}
+```
+
+Se de fato chamássemos a função `recursive`, ela seria executada indefinidamente. Por essa razão, todas as funções desse tipo deve ser condicionadas (a condição chama-se _base case_) para prevenir recursão infinita.
+
+Seguem alguns exemplos comuns de funções recursivas.
+
+### **Fatorial de um número**
+
+O fatorial de `5` é representado por `5!` e é igual a `5 * 4 * 3 * 2 * 1`.
+
+A representação dos passos necessários para computar o fatorial de um número `n` é: `n * (n - 1) * (n - 2) * (n - 3) * ... * 1`
+
+Usando `loop` (método _iterativo_), poderíamos escrever a seguinte função para calcular o fatorial de `n`:
+
+```javascript
+function factorialIterative(number) {
+  // Se 'number' é negativo retorna 'undefined'
+  if (number < 0) return undefined;
+
+  let total = 1;
+
+  for (let n = number; n > 1; n--) {
+    total *= n;
+  }
+
+  return total;
+}
+```
+
+Usando _recursividade_ poderíamos escrever a seguinte função para resolver o mesmo problem:
+
+```javascript
+function factorial(n) {
+  // Condição de parada (base case):
+  if (n === 1 || n === 0) return 1;
+
+  //Recursão:
+  return n * factorial(n - 1);
+}
+```
+
+</br>
+
+## Call Stack
+
+**Call stack** é o mecanismo usado por um interpretador (como o interpretador de JavaScript no browser) para saber em que ponto de um _script_, em que pode haver múltiplas chamadas de funções, ele está; ou seja, o **call stack** serve para o interpretador saber que _função_ está sendo executada e quais outras são chamadas desde dentro dessa função.
+
+- Quando um _script_ chama uma função, o interpretador a adiciona ao _call stack_ e passa a executar a função.
+- Quaisquer funções chamadas pela primeira são empilhadas na _call stack_ e executadas
+- Quando a função atualmente em execução é finalizada, o interpretador a remove da pilha e retorna a execução do _script_ de onde havia parado, conforme sequência de chamadas na _call stack_
+
+Se adicionarmos `console.trace()` à função `factorial` e a executarmos no navegador, veremos o seguinte resultado:
+
+![Chamada recursiva](./recursive-call-on-browser.png)
+
+Ou seja, a função `factorial` é chamada `3` vezes durante a operação. Podemos ainda representar os passos executados e as ações na _call stack_ com o seguinte diagrama:
+
+![Call stack diagram](./call-stack-diagram.png)
+
+</br>
+
+## A limitação da _call stack_ do JavaScript
+
+Se, numa chamada recursiva, esquecermos de adicionar uma condição de parada, o navegador lançará o erro **stack overflow error**
+
+</br>
+
+## Implementações das estruturas de dados
+
+### Listas
 
 Listas são especialmente úteis se não temos de fazer pesquisas pelos itens ou ordená-los de alguma forma. Como as estruturas de dados serão criadas aqui com objetos, devemos definir os atributos (características) e métodos (ações) da classe **List**.
 
-### List ADT (abstract data type)
+#### List ADT (abstract data type)
 
 - Lista é uma sequência ordenada de dados
 - Cada item da lista é chamado _elemento_. Em JavaScript, elementos podem ser de qualquer tipo (string, number, boolean etc).
@@ -111,13 +209,13 @@ _[Clique aqui para ver a implementação da lista](./list/List.js)_.
 
 <hr>
 
-## Pilhas (Stacks)
+### Pilhas (Stacks)
 
 Stack (_pilha_) é uma lista de elementos acessíveis somente desde um ponto da lista, o qual é chamado topo. A _stack_ é conhecida como _last-in, first-out_ (LIFO) - último a chegar, primeiro a sair.
 
 Para pegar um elemento do fundo da _stack_, todos os outros elementos devem ser removidos primeiro.
 
-### Stack ADT
+#### Stack ADT
 
 - Elementos são adicionados através da operação _push_
 - Elementos são removidos através da operação _pop_
@@ -131,13 +229,13 @@ _[Clique aqui para ver exemplos de uso e a implementação da stack](./stack)_.
 
 <hr>
 
-## Filas (Queues)
+### Filas (Queues)
 
 Filas (_queues_) são um tipo de lista em que os dados são inseridos no fim e removidos do início. Filas são usadas para armazenar dados na ordem de ocorrência, ao contrário das pilhas (_stacks_), em que o último dado inserido é o primeiro a ser processado.
 
 Filas são exemplos de estrutura de dados _first-in, first-out (FIFO)_ - primeiro a chegar, primeiro a sair. Filas são usadas para ordenar processos submetidos, por exemplo, a um sistema operacional, impressoras etc.
 
-### Operações de _queues_
+#### Operações de _queues_
 
 As duas principais operações de _queues_ são inserção e remoção de elementos. A inserção é chamada _enqueue_ (enfileirar), e a remoção _dequeue_. A operação _enqueue_ insere um novo elemento no fim da fila; a operação _dequeue_ remove um elemento da frente da fila.
 
@@ -147,7 +245,7 @@ _[Clique aqui para ver a implementação, exemplos e exercícios relacionados a 
 
 <hr>
 
-## Filas Duplamente Terminadas (Deques)
+### Filas Duplamente Terminadas (Deques)
 
 A estrutura de dados _deque_ (_**d**ouble **e**nded **q**ueue_), também conhecida como _double-ended queue_, é um tipo especial de fila que permite inserir e remover elementos do fim e do início dela.
 
@@ -157,15 +255,15 @@ _[Clique aqui para ver a implementação de deques](./deque/)_
 
 <hr>
 
-## Listas encadeadas (Linked Lists)
+### Listas encadeadas (Linked Lists)
 
-### Definiências de _arrays_
+#### Definiências de _arrays_
 
 _Arrays_ não são a melhor estrutura de dados em algumas situações. Em muitas linguagens de programação, _arrays_ tem tamanho fixo, tornando trabalhosa a adição de elementos quando o tamanho máximo é alcançado. Além disso, nessas mesmas linguagens, adicionar e remover elementos de um _array_ significa ter de realocar o índice de todos os outros elementos. Essas dificuldades, porém, não existem em JavaScript - podemos usar _shift()_ ou _split()_ sem a preocupação de acessar outros elementos do _array_.
 
 O principal problema de _arrays_ em JavaScript, no entanto, é eles serem implementados como objetos, tornando-os menos eficientes que _arrays_ construídos em outras linguagem (C++ e Java, por exemplo).
 
-### Que é um _array_?
+#### Que é um _array_?
 
 Um _array_ é uma alocação linear (contígua) de memória em que elementos são acessados por _números inteiros_. Esses _inteiros_, por sua vez, são usados para computar _offsets_ (deslocamentos), ou seja, cada _inteiro_ é um _índice_ de um espaço da memória alocada para o array. JavaScript não possui nada parecido com isso.
 
@@ -203,7 +301,7 @@ Apesar de poder ser mais convenientemente manipulado, um arrray _JavaScript_ é 
 
 Quando operações com arrays tornam-se lentas demais, podemos considerar listas encadeadas como um alternativa. Essas listas pode ser usadas em quase todas as situações em que arrays unidimensionais são usados, exceto se for preciso acesso a elementos aleatórios da lista; nesse caso, arrays devem ser usados.
 
-### Definição de _listas encadeadas (linked lists)_
+#### Definição de _listas encadeadas (linked lists)_
 
 Listas encadeadas são uma coleção de _nodes_ (nódulos). Cada _nódulo_ é ligado ao seu sucessor por meio de uma _referência_. A referência a outro _node_ é chamada _link_.
 
@@ -233,7 +331,7 @@ _[Clique aqui para ver a implementação, exemplos de uso e exercícios de lista
 
 <hr>
 
-## Dicionário (dictionary)
+### Dicionário (dictionary)
 
 Um **dicionário** é usado para guardar pares de chave/valor, podendo a _chave_ ser usada para encontrar o _valor_. Dicionários são também chamados **mapas**, **tabela de símbolos** ou **arrays associativos**.
 
@@ -243,7 +341,7 @@ Objetos em JavaScript são desenhados para serem operados como dicionários. Al�
 
 <hr>
 
-## Sets (conjuntos)
+### Sets (conjuntos)
 
 _Set_ é uma coleção de dados desordenados e únicos (valores não podem se repetir). Esta estrutura de dados usa o conceito metemático de conjuntos finitos aplicado a uma estrutura de dados computacional.
 
@@ -274,7 +372,7 @@ _[Implementação da classe Set](./set/README.md)_
 
 <hr>
 
-## Tabela de dispersão (Hash table)
+### Tabela de dispersão (Hash table)
 
 _Hash table_ (tabela _hash_, ou tabela de espelhamento) é um tipo de _dicionário_.
 
