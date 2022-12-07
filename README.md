@@ -239,7 +239,7 @@ Um **dicionário** é usado para guardar pares de chave/valor, podendo a _chave_
 
 Objetos em JavaScript são desenhados para serem operados como dicionários. Além disso, a partir de ECMAScript 2015, outras implementaççoes de dicionários foram adicionadas à linguagem: as classes `Map`, `WeakMap` e `WeakSet`.
 
-[Mais sobre Map, WeakMap e WeakSet aqui]()
+[Mais sobre Map, WeakMap e WeakSet aqui](./dictionary)
 
 <hr>
 
