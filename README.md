@@ -89,6 +89,8 @@ Classes, portanto, são moldes (ou templates) de objetos.
 
 ### **Entendendo recursividade**
 
+Uma famoso ditato popular _dev_ diz:
+
 > "Para entender recursividade, é preciso primeiro entender recursividade." - Autor desconhecido
 
 **Recursividade** é um método usado para resolução de problemas. O método consiste em resolver pequenas porções do problema repetidamente, até que este seja resolvido.
