@@ -13,8 +13,8 @@ O conteúdo aqui presente foi cotejado de diversas fontes e tem objetivo apenas 
   - [Filas (Queues)](#filas-queues)
   - [Filas duplamente terminadas (Deques)](#filas-duplamente-terminadas-deques)
   - [Listas encadeadas (Linked lists)](#listas-encadeadas-linked-lists)
-  - [Conjuntos (Sets)](#sets-conjuntos)
   - [Dicionários (Dictionaries)](#dicionário-dictionary)
+  - [Conjuntos (Sets)](#sets-conjuntos)
   - [Tabelas de dispersão (Hash Tables)](#tabela-de-dispersão-hash-table)
 
 </br>
@@ -233,6 +233,16 @@ _[Clique aqui para ver a implementação, exemplos de uso e exercícios de lista
 
 <hr>
 
+## Dicionário (dictionary)
+
+Um **dicionário** é usado para guardar pares de chave/valor, podendo a _chave_ ser usada para encontrar o _valor_. Dicionários são também chamados **mapas**, **tabela de símbolos** ou **arrays associativos**.
+
+Objetos em JavaScript são desenhados para serem operados como dicionários. Além disso, a partir de ECMAScript 2015, outras implementaççoes de dicionários foram adicionadas à linguagem: as classes `Map`, `WeakMap` e `WeakSet`.
+
+[Mais sobre Map, WeakMap e WeakSet aqui]()
+
+<hr>
+
 ## Sets (conjuntos)
 
 _Set_ é uma coleção de dados desordenados e únicos (valores não podem se repetir). Esta estrutura de dados usa o conceito metemático de conjuntos finitos aplicado a uma estrutura de dados computacional.
@@ -261,16 +271,6 @@ Precisamos então declarar os métodos disponíveis para um _set_:
 - `values()`: Retorna um _array_ com todos os valores (`elements`) do conjunto;
 
 _[Implementação da classe Set](./set/README.md)_
-
-<hr>
-
-## Dicionário (dictionary)
-
-Um **dicionário** é usado para guardar pares de chave/valor, podendo a _chave_ ser usada para encontrar o _valor_. Dicionários são também chamados **mapas**, **tabela de símbolos** ou **arrays associativos**.
-
-Objetos em JavaScript são desenhados para serem operados como dicionários. Além disso, a partir de ECMAScript 2015, uma outra implementação de dicionário foi adicionada à linguagem: a classe `Map`.
-
-Mais sobre `Map` [aqui](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map)
 
 <hr>
 
