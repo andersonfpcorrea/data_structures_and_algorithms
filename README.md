@@ -156,6 +156,70 @@ function factorial(n) {
 
 </br>
 
+### **A sequência Fibonacci**
+
+A _sequência Fibonacci_ pode ser gerada através de _recursividade_. A sequência é _0, 1, 1, 2, 3, 5, 8, 13, 21, 34..._. A série pode ser definida desta forma:
+
+- O primeiro elemento (índice 0) é `0`;
+- Os elementos nas duas posições seguintes (índices 1 e 2) são `1`;
+- O elemento na posição `n`, para `n > 2`, é igual ao valor da śerie na posição `n - 1` + o valor na posição `n -2`.
+
+### **Fibonacci iterativo**
+
+```javascript
+function fibonacciInteractive(n) {
+  if (n < 1) return 0;
+  if (n <= 2) return 2;
+
+  let fibNMinus2 = 0; // Valor da série em 'n - 2'
+  let fibNMinus1 = 1; // Valor da série em 'n - 1'
+  let fibN = n;
+  for (let i = 2; i <= n; i++) {
+    fibN = fibNMinus1 + fibNMinus2;
+    fibNMinus2 = fibNminus1;
+    fibNminus1 = fibN;
+  }
+  return fibN;
+}
+```
+
+### **Fibonacci recursivo**
+
+```javascript
+function fibonacci(n) {
+  if (n < 1) return 0;
+  if (n <= 2) return 1;
+  return fibonacci(n - 1) + fibonacci(n - 2);
+}
+```
+
+Diagrama com as chamadas da função `fibonacci`:
+
+![Chamadas da função fibonacci](./fibo-recur-function-calls.png)
+
+### **Fibonacci com _memoization_**
+
+Há, ainda, um terceiro método, chamado [**memoization**](https://en.wikipedia.org/wiki/Memoization), de calcular a sequência. _Memoization_ é uma técnica de otimização com a qual valores computados anteriormente são memorizados, similarmente a um [_cache_](<https://en.wikipedia.org/wiki/Cache_(computing)>).
+
+Se analizarmos as chamadas realizadas da função `fibonacci` para computar `fibonacci(5)`, notaremos que `fibonacci(3)` é computado `2` vezes. Podemos, portanto, armazenar esse resultado já computado para que, quando necessário, já tenhamos o valor disponível.
+
+Função `fibonacci` com _memoization_:
+
+```javascript
+function fibonacciMemoization(n) {
+  const memo = [0, 1];
+  const fibonacci = (pos) => {
+    if (memo[pos] !== undefined) return memo[pos];
+    return (memo[pos] = fibonacci(pos - 1) + fibonacci(pos - 2));
+  };
+  return fibonacci(n);
+}
+```
+
+O array `memo` faz o _cache_ de todos os valores computados. Na _arrow function_ `fibonacci`, se o valor Fibonacci de `n` já foi computado, este valor é retornado; caso contrário, o valor é calculado e adicionado ao _cache_.
+
+</br>
+
 ## Call Stack
 
 **Call stack** é o mecanismo usado por um interpretador (como o interpretador de JavaScript no browser) para saber em que ponto de um _script_, em que pode haver múltiplas chamadas de funções, ele está; ou seja, o **call stack** serve para o interpretador saber que _função_ está sendo executada e quais outras são chamadas desde dentro dessa função.
@@ -174,9 +238,15 @@ Ou seja, a função `factorial` é chamada `3` vezes durante a operação. Podem
 
 </br>
 
-## A limitação da _call stack_ do JavaScript
+### **A limitação da _call stack_ do JavaScript**
 
-Se, numa chamada recursiva, esquecermos de adicionar uma condição de parada, o navegador lançará o erro **stack overflow error**
+Se, numa chamada recursiva, esquecermos de adicionar uma condição de parada, o navegador lançará o erro **stack overflow error**.
+
+Cada _engine_ tem sua limitação. Podemos testar o limite do Google Chrome, por exemplo, com o seguinte código:
+
+![Chrome max call stack](./chrome-max-call-stack.png)
+
+ES6 introduziu **tail call optimization**, ou seja, se a chamada de uma função é a última ação dentro de uma função, a _engine_ otimiza essa execução e não a adiciona à _call stack_. Na prática, isso significa que uma chamada recursiva pode ser executada indefinidamente em ECMAScript 2015.
 
 </br>
 
