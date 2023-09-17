@@ -66,6 +66,30 @@ export default class BinarySearchTree {
       callback(node.key);
     }
   }
+
+  min() {
+    return this.minNode(this.root);
+  }
+
+  minNode(node) {
+    let current = node;
+    while (current !== null && current.left !== null) {
+      current = current.left;
+    }
+    return current;
+  }
+
+  max() {
+    return this.maxNode(this.root);
+  }
+
+  maxNode(node) {
+    let current = node;
+    while (current !== null && current.right !== null) {
+      current = current.right;
+    }
+    return current;
+  }
 }
 
 const tree = new BinarySearchTree();
