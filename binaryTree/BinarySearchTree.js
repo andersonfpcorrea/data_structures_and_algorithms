@@ -1,5 +1,5 @@
-import { Compare, defaultCompare } from '../utils.js';
-import { Node } from './Node.js';
+import { Compare, defaultCompare } from "../utils.js";
+import { Node } from "./Node.js";
 
 export default class BinarySearchTree {
   constructor(compareFn = defaultCompare) {
@@ -54,10 +54,37 @@ export default class BinarySearchTree {
       this.preOrderTraverseNode(node.right, callback);
     }
   }
+
+  postOrderTraverse(callback) {
+    this.postOrderTraverseNode(this.root, callback);
+  }
+
+  postOrderTraverseNode(node, callback) {
+    if (node !== null) {
+      this.postOrderTraverseNode(node.left, callback);
+      this.postOrderTraverseNode(node.right, callback);
+      callback(node.key);
+    }
+  }
 }
 
 const tree = new BinarySearchTree();
 tree.insert(11);
-const printNode = (value) => console.log(value);
-tree.inOrderTraverse(printNode);
-tree.preOrderTraverse(printNode);
+tree.insert(7);
+tree.insert(15);
+tree.insert(5);
+tree.insert(9);
+tree.insert(13);
+tree.insert(20);
+tree.insert(3);
+tree.insert(6);
+tree.insert(8);
+tree.insert(10);
+tree.insert(12);
+tree.insert(14);
+tree.insert(18);
+tree.insert(25);
+
+// tree.inOrderTraverse(console.log);
+// tree.preOrderTraverse(console.log);
+tree.postOrderTraverse(console.log);
