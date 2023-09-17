@@ -113,11 +113,11 @@ export default class BinarySearchTree {
   #removeNode(node, key) {
     if (node === null) return null;
     if (this.compareFn(key, node.key) === Compare.LESS_THAN) {
-      node.left = this.#removeNode(node.left.key);
+      node.left = this.#removeNode(node.left, key);
       return node;
     }
     if (this.compareFn(key, node.key) === Compare.BIGGER_THAN) {
-      node.right = this.#removeNode(node.right.key);
+      node.right = this.#removeNode(node.right, key);
       return node;
     }
     // key is equal to node.key
