@@ -3,7 +3,7 @@ import BinarySearchTree from "./BinarySearchTree";
 
 /**
  * Node interface
- * @typedef {{key:number;left:Node;right:Node}} INode
+ * @typedef {{key:number;left:INode;right:INode} | null} INode
  */
 
 const BalanceFactor = {
@@ -54,5 +54,16 @@ class AVLTree extends BinarySearchTree {
       default:
         return BalanceFactor.BALANCED;
     }
+  }
+
+  /**
+   * @param {INode} node
+   * @returns {number}
+   */
+  rotationLL(node) {
+    const tmp = node.left;
+    node.left = tmp.right;
+    tmp.right = node;
+    return tmp;
   }
 }
