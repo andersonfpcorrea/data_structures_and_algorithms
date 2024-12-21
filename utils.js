@@ -1,7 +1,7 @@
 export const Compare = {
   LESS_THAN: -1,
   BIGGER_THAN: 1,
-  EQUALS: 0
+  EQUALS: 0,
 };
 
 export const DOES_NOT_EXIST = -1;
@@ -29,20 +29,21 @@ export function defaultEquals(a, b) {
 
 export function defaultToString(item) {
   if (item === null) {
-    return 'NULL';
-  } if (item === undefined) {
-    return 'UNDEFINED';
-  } if (typeof item === 'string' || item instanceof String) {
+    return "NULL";
+  }
+  if (item === undefined) {
+    return "UNDEFINED";
+  }
+  if (typeof item === "string" || item instanceof String) {
     return `${item}`;
   }
   return item.toString();
 }
 
 export function swap(array, a, b) {
-  /* const temp = array[a];
+  const temp = array[a];
   array[a] = array[b];
-  array[b] = temp; */
-  [array[a], array[b]] = [array[b], array[a]];
+  array[b] = temp;
 }
 export function reverseCompare(compareFn) {
   return (a, b) => compareFn(b, a);
